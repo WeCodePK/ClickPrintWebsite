@@ -19,7 +19,7 @@ function Hero({ onRegister }: HomePageProps) {
 				{/* copy */}
 				<div>
 					<h1 className="cp-rise [animation-delay:.08s] font-sora font-extrabold text-[56px] leading-[1.04] tracking-[-1.5px] mb-5">
-						Turn your printer into a campus{" "}
+						Turn your printer into a {" "}
 						<span className="bg-linear-to-br from-[#1b3a6b] to-[#18b8c9] bg-clip-text text-transparent">goldmine.</span>
 					</h1>
 					<p className="cp-rise [animation-delay:.14s] text-[18.5px] leading-[1.6] text-body max-w-130 mb-8">
@@ -35,31 +35,31 @@ function Hero({ onRegister }: HomePageProps) {
 						</button>
 						<a
 							href="#how"
-							className="cursor-pointer font-manrope font-bold text-base text-ink bg-white border-[1.5px] border-line px-[26px] py-4 rounded-[14px] shadow-[0_2px_8px_rgba(143,155,179,.08)]"
+							className="cursor-pointer font-manrope font-bold text-base text-ink bg-white border-[1.5px] border-line px-6.5 py-4 rounded-[14px] shadow-[0_2px_8px_rgba(143,155,179,.08)]"
 						>
 							See how it works
 						</a>
 					</div>
-					<div className="cp-rise [animation-delay:.28s] flex items-center gap-[10px] mt-[26px] text-muted text-[13.5px] font-semibold">
+					<div className="cp-rise [animation-delay:.28s] flex items-center gap-2.5 mt-6.5 text-muted text-[13.5px] font-semibold">
 						Joined by 600+ shops with 1000 users
 					</div>
 				</div>
 
 				{/* animated product flow scene */}
-				<div className="cp-rise [animation-delay:.18s] relative h-[480px]">
+				<div className="cp-rise [animation-delay:.18s] relative h-120">
 					{/* background floating doc chips */}
 					<div className="absolute inset-0 pointer-events-none">
 						<div
 							style={{ "--r": "-8deg" } as CSSProperties}
-							className="absolute left-[6%] top-[60%] w-[46px] h-[58px] rounded-lg bg-white shadow-[0_8px_20px_rgba(143,155,179,.16)] animate-[cpFloatUp_7s_ease-in_infinite]"
+							className="absolute left-[6%] top-[60%] w-11.5 h-14.5 rounded-lg bg-white shadow-[0_8px_20px_rgba(143,155,179,.16)] animate-[cpFloatUp_7s_ease-in_infinite]"
 						/>
 						<div
 							style={{ "--r": "10deg" } as CSSProperties}
-							className="absolute left-[44%] top-[78%] w-10 h-[52px] rounded-lg bg-white shadow-[0_8px_20px_rgba(143,155,179,.16)] animate-[cpFloatUp_8.5s_ease-in_1.6s_infinite]"
+							className="absolute left-[44%] top-[78%] w-10 h-13 rounded-lg bg-white shadow-[0_8px_20px_rgba(143,155,179,.16)] animate-[cpFloatUp_8.5s_ease-in_1.6s_infinite]"
 						/>
 						<div
 							style={{ "--r": "-5deg" } as CSSProperties}
-							className="absolute left-[76%] top-[66%] w-[42px] h-[54px] rounded-lg bg-white shadow-[0_8px_20px_rgba(143,155,179,.16)] animate-[cpFloatUp_7.8s_ease-in_3.1s_infinite]"
+							className="absolute left-[76%] top-[66%] w-10.5 h-13.5 rounded-lg bg-white shadow-[0_8px_20px_rgba(143,155,179,.16)] animate-[cpFloatUp_7.8s_ease-in_3.1s_infinite]"
 						/>
 					</div>
 
@@ -78,41 +78,41 @@ function Hero({ onRegister }: HomePageProps) {
 					</svg>
 
 					{/* phone */}
-					<div className="absolute left-[2%] top-[26px] w-[214px] h-[428px] bg-navy rounded-[38px] p-[11px] shadow-[0_30px_60px_rgba(18,35,63,.28)] animate-[cpBob_5s_ease-in-out_infinite]">
+					<div className="absolute left-[2%] top-6.5 w-53.5 h-107 bg-navy rounded-[38px] p-2.75 shadow-[0_30px_60px_rgba(18,35,63,.28)] animate-[cpBob_5s_ease-in-out_infinite]">
 						<div className="w-full h-full bg-cloud rounded-[29px] overflow-hidden relative">
 							{/* notch */}
-							<div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-[22px] bg-navy rounded-b-2xl z-[3]" />
+							<div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5.5 bg-navy rounded-b-2xl z-3" />
 							{/* app screen */}
-							<div className="pt-[34px] px-4">
+							<div className="pt-8.5 px-4">
 								<div className="font-sora font-bold text-[15px] text-ink">Upload document</div>
-								<div className="text-[11px] text-muted mt-[2px] font-semibold">Jani Print Shop · COMSATS</div>
+								<div className="text-[11px] text-muted mt-0.5 font-semibold">Jani Print Shop · COMSATS</div>
 								{/* doc card */}
-								<div className="mt-4 bg-white rounded-2xl p-[14px] shadow-[0_8px_20px_rgba(143,155,179,.12)]">
-									<div className="flex gap-[10px] items-center">
-										<div className="flex-none w-[38px] h-[46px] rounded-[7px] bg-gradient-to-br from-blue to-[#2A8AEF] relative">
-											<div className="absolute left-[7px] right-[7px] top-[11px] h-[3px] rounded-sm bg-white/85" />
-											<div className="absolute left-[7px] right-[11px] top-[18px] h-[3px] rounded-sm bg-white/65" />
-											<div className="absolute left-[7px] right-[9px] top-[25px] h-[3px] rounded-sm bg-white/65" />
+								<div className="mt-4 bg-white rounded-2xl p-3.5 shadow-[0_8px_20px_rgba(143,155,179,.12)]">
+									<div className="flex gap-2.5 items-center">
+										<div className="flex-none w-9.5 h-11.5 rounded-[7px] bg-linear-to-br from-blue to-[#2A8AEF] relative">
+											<div className="absolute left-1.75 right-1.75 top-2.75 h-0.75 rounded-sm bg-white/85" />
+											<div className="absolute left-1.75 right-2.75 top-4.5 h-0.75 rounded-sm bg-white/65" />
+											<div className="absolute left-1.75 right-2.25 top-6.25 h-0.75 rounded-sm bg-white/65" />
 										</div>
 										<div className="flex-1">
 											<div className="text-xs font-bold text-ink">Thesis.pdf</div>
-											<div className="text-[10.5px] text-muted font-semibold mt-[2px]">24 pages · Color · A4</div>
+											<div className="text-[10.5px] text-muted font-semibold mt-0.5">24 pages · Color · A4</div>
 										</div>
 									</div>
 								</div>
 								{/* options row */}
 								<div className="flex gap-2 mt-3">
-									<div className="flex-1 bg-white rounded-[11px] p-[9px] text-center shadow-[0_4px_12px_rgba(143,155,179,.1)]">
+									<div className="flex-1 bg-white rounded-[11px] p-2.25 text-center shadow-[0_4px_12px_rgba(143,155,179,.1)]">
 										<div className="text-[9px] text-muted font-bold tracking-[.4px]">COPIES</div>
-										<div className="text-[13px] font-extrabold text-ink mt-[2px]">2</div>
+										<div className="text-[13px] font-extrabold text-ink mt-0.5">2</div>
 									</div>
-									<div className="flex-1 bg-white rounded-[11px] p-[9px] text-center shadow-[0_4px_12px_rgba(143,155,179,.1)]">
+									<div className="flex-1 bg-white rounded-[11px] p-2.25 text-center shadow-[0_4px_12px_rgba(143,155,179,.1)]">
 										<div className="text-[9px] text-muted font-bold tracking-[.4px]">SIDES</div>
-										<div className="text-[13px] font-extrabold text-ink mt-[2px]">Both</div>
+										<div className="text-[13px] font-extrabold text-ink mt-0.5">Both</div>
 									</div>
 								</div>
 								{/* pay pill */}
-								<div className="mt-[14px] bg-green rounded-[13px] p-3 flex items-center justify-center gap-2 shadow-[0_10px_22px_rgba(0,217,163,.32)] animate-[cpTap_3.2s_ease-in-out_infinite]">
+								<div className="mt-3.5 bg-green rounded-[13px] p-3 flex items-center justify-center gap-2 shadow-[0_10px_22px_rgba(0,217,163,.32)] animate-[cpTap_3.2s_ease-in-out_infinite]">
 									<span className="text-white font-sora font-bold text-[13.5px]">Pay &amp; send to shop</span>
 								</div>
 							</div>
@@ -120,9 +120,9 @@ function Hero({ onRegister }: HomePageProps) {
 					</div>
 
 					{/* QR floating badge */}
-					<div className="absolute right-[8%] top-[14px] w-28 h-28 bg-white rounded-[20px] p-[11px] shadow-[0_18px_40px_rgba(59,158,255,.25)] overflow-hidden animate-[cpBob_6s_ease-in-out_.5s_infinite]">
+					<div className="absolute right-[8%] top-3.5 w-28 h-28 bg-white rounded-[20px] p-2.75 shadow-[0_18px_40px_rgba(59,158,255,.25)] overflow-hidden animate-[cpBob_6s_ease-in-out_.5s_infinite]">
 						<img src={qrCode} alt="QR" className="w-full h-full object-contain rounded-lg" />
-						<div className="absolute left-[11px] right-[11px] h-[3px] rounded-[3px] bg-gradient-to-r from-transparent via-green to-transparent shadow-[0_0_10px_rgba(0,217,163,.8)] animate-[cpScan_2.4s_ease-in-out_infinite]" />
+						<div className="absolute left-2.75 right-2.75 h-0.75 rounded-[3px] bg-linear-to-r from-transparent via-green to-transparent shadow-[0_0_10px_rgba(0,217,163,.8)] animate-[cpScan_2.4s_ease-in-out_infinite]" />
 					</div>
 
 					{/* printer */}
