@@ -50,12 +50,12 @@ export default function Header({ isHome, onHome, onRegister }: HeaderProps) {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden flex flex-col gap-[5px] p-2 cursor-pointer bg-transparent border-none"
+            className="md:hidden flex flex-col gap-1.25 p-2 cursor-pointer bg-transparent border-none"
             aria-label="Toggle menu"
           >
             <span className={`block w-5.5 h-[2.5px] rounded-full bg-ink transition-all duration-300 ${menuOpen ? 'translate-y-[7.5px] rotate-45' : ''}`} />
             <span className={`block w-5.5 h-[2.5px] rounded-full bg-ink transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
-            <span className={`block w-5.5 h-[2.5px] rounded-full bg-ink transition-all duration-300 ${menuOpen ? '-translate-y-[7.5px] -rotate-45' : ''}`} />
+            <span className={`block w-5.5 h-[2.5px] rounded-full bg-ink transition-all duration-300 ${menuOpen ? 'translate-y-[-7.5px] -rotate-45' : ''}`} />
           </button>
         </div>
       </div>

@@ -23,7 +23,7 @@ function Hero({ onRegister }: HomePageProps) {
 						<span className="bg-linear-to-br from-[#1b3a6b] to-[#18b8c9] bg-clip-text text-transparent">goldmine.</span>
 					</h1>
 					<p className="cp-rise [animation-delay:.14s] text-[15.5px] sm:text-[18.5px] leading-[1.6] text-body max-w-130 mx-auto lg:mx-0 mb-6 sm:mb-8">
-						ClickPrint streams thousands of pre‑paid print jobs straight to your shop. You print, you earn — no new hardware, no chasing
+						ClickPrint streams thousands of pre-paid print jobs straight to your shop. You print, you earn - no new hardware, no chasing
 						customers.
 					</p>
 					<div className="cp-rise [animation-delay:.2s] flex flex-wrap gap-3 sm:gap-3.5 items-center justify-center lg:justify-start">
@@ -78,8 +78,8 @@ function Hero({ onRegister }: HomePageProps) {
 					</svg>
 
 					{/* phone */}
-					<div className="absolute left-[2%] top-4 sm:top-6.5 w-36 sm:w-44 lg:w-53.5 h-72 sm:h-88 lg:h-107 bg-navy rounded-[26px] sm:rounded-[32px] lg:rounded-[38px] p-2 sm:p-2.75 shadow-[0_30px_60px_rgba(18,35,63,.28)] animate-[cpBob_5s_ease-in-out_infinite]">
-						<div className="w-full h-full bg-cloud rounded-[20px] sm:rounded-[24px] lg:rounded-[29px] overflow-hidden relative">
+					<div className="absolute left-[2%] top-4 sm:top-6.5 w-36 sm:w-44 lg:w-53.5 h-72 sm:h-88 lg:h-107 bg-navy rounded-[26px] sm:rounded-4xl lg:rounded-[38px] p-2 sm:p-2.75 shadow-[0_30px_60px_rgba(18,35,63,.28)] animate-[cpBob_5s_ease-in-out_infinite]">
+						<div className="w-full h-full bg-cloud rounded-[20px] sm:rounded-3xl lg:rounded-[29px] overflow-hidden relative">
 							{/* notch */}
 							<div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 sm:w-20 lg:w-24 h-4 sm:h-5 lg:h-5.5 bg-navy rounded-b-xl sm:rounded-b-2xl z-3" />
 							{/* app screen */}
@@ -102,11 +102,11 @@ function Hero({ onRegister }: HomePageProps) {
 								</div>
 								{/* options row */}
 								<div className="flex gap-1.5 sm:gap-2 mt-2 sm:mt-3">
-									<div className="flex-1 bg-white rounded-[8px] sm:rounded-[11px] p-1.5 sm:p-2.25 text-center shadow-[0_4px_12px_rgba(143,155,179,.1)]">
+									<div className="flex-1 bg-white rounded-lg sm:rounded-[11px] p-1.5 sm:p-2.25 text-center shadow-[0_4px_12px_rgba(143,155,179,.1)]">
 										<div className="text-[7.5px] sm:text-[8px] lg:text-[9px] text-muted font-bold tracking-[.4px]">COPIES</div>
 										<div className="text-[11px] sm:text-[12px] lg:text-[13px] font-extrabold text-ink mt-0.5">2</div>
 									</div>
-									<div className="flex-1 bg-white rounded-[8px] sm:rounded-[11px] p-1.5 sm:p-2.25 text-center shadow-[0_4px_12px_rgba(143,155,179,.1)]">
+									<div className="flex-1 bg-white rounded-lg sm:rounded-[11px] p-1.5 sm:p-2.25 text-center shadow-[0_4px_12px_rgba(143,155,179,.1)]">
 										<div className="text-[7.5px] sm:text-[8px] lg:text-[9px] text-muted font-bold tracking-[.4px]">SIDES</div>
 										<div className="text-[11px] sm:text-[12px] lg:text-[13px] font-extrabold text-ink mt-0.5">Both</div>
 									</div>
@@ -126,36 +126,36 @@ function Hero({ onRegister }: HomePageProps) {
 					</div>
 
 					{/* printer */}
-					<div className="absolute right-[1%] sm:right-[3%] bottom-2 sm:bottom-5 w-[130px] sm:w-[170px] lg:w-[210px]">
+					<div className="absolute right-[1%] sm:right-[3%] bottom-2 sm:bottom-5 w-32.5 sm:w-42.5 lg:w-52.5">
 						{/* ejected pages */}
-						<div className="absolute left-[20px] sm:left-[26px] right-[20px] sm:right-[26px] -top-[6px] h-14 sm:h-20 pointer-events-none overflow-visible">
-							<div className="absolute left-0 right-0 top-0 h-[44px] sm:h-[56px] lg:h-[66px] bg-white rounded-[5px] shadow-[0_8px_18px_rgba(143,155,179,.18)] origin-top animate-[cpEject_3s_ease-in_infinite]">
-								<div className="absolute left-2 sm:left-3 right-2 sm:right-3 top-2 sm:top-3 h-[2px] sm:h-[3px] bg-line rounded-sm" />
-								<div className="absolute left-2 sm:left-3 right-[16px] sm:right-[22px] top-[14px] sm:top-[22px] h-[2px] sm:h-[3px] bg-line rounded-sm" />
-								<div className="absolute left-2 sm:left-3 right-3 sm:right-4 top-[22px] sm:top-8 h-[2px] sm:h-[3px] bg-line rounded-sm" />
+						<div className="absolute left-5 sm:left-6.5 right-5 sm:right-6.5 -top-1.5 sm:-top-2 h-14 sm:h-20 pointer-events-none overflow-visible">
+							<div className="absolute left-0 right-0 top-0 h-11 sm:h-14 lg:h-16.5 bg-white rounded-[5px] shadow-[0_8px_18px_rgba(143,155,179,.18)] origin-top animate-[cpEject_3s_ease-in_infinite]">
+								<div className="absolute left-2 sm:left-3 right-2 sm:right-3 top-2 sm:top-3 h-0.5 sm:h-0.75 bg-line rounded-sm" />
+								<div className="absolute left-2 sm:left-3 right-4 sm:right-5.5 top-3.5 sm:top-5.5 h-0.5 sm:h-0.75 bg-line rounded-sm" />
+								<div className="absolute left-2 sm:left-3 right-3 sm:right-4 top-5.5 sm:top-8 h-0.5 sm:h-0.75 bg-line rounded-sm" />
 							</div>
-							<div className="absolute left-0 right-0 top-0 h-[44px] sm:h-[56px] lg:h-[66px] bg-white rounded-[5px] shadow-[0_8px_18px_rgba(143,155,179,.18)] origin-top animate-[cpEject_3s_ease-in_1.5s_infinite]">
-								<div className="absolute left-2 sm:left-3 right-2 sm:right-3 top-2 sm:top-3 h-[2px] sm:h-[3px] bg-line rounded-sm" />
-								<div className="absolute left-2 sm:left-3 right-[16px] sm:right-[22px] top-[14px] sm:top-[22px] h-[2px] sm:h-[3px] bg-line rounded-sm" />
+							<div className="absolute left-0 right-0 top-0 h-11 sm:h-14 lg:h-16.5 bg-white rounded-[5px] shadow-[0_8px_18px_rgba(143,155,179,.18)] origin-top animate-[cpEject_3s_ease-in_1.5s_infinite]">
+								<div className="absolute left-2 sm:left-3 right-2 sm:right-3 top-2 sm:top-3 h-0.5 sm:h-0.75 bg-line rounded-sm" />
+								<div className="absolute left-2 sm:left-3 right-4 sm:right-5.5 top-3.5 sm:top-5.5 h-0.5 sm:h-0.75 bg-line rounded-sm" />
 							</div>
 						</div>
 						{/* printer body */}
-						<div className="relative z-[2] bg-gradient-to-br from-[#243a63] to-navy rounded-t-[14px] sm:rounded-t-[18px] lg:rounded-t-[20px] rounded-b-xl sm:rounded-b-2xl px-3 sm:px-4 pt-3 sm:pt-4 pb-3.5 sm:pb-5 shadow-[0_24px_44px_rgba(18,35,63,.3)]">
-							<div className="h-[6px] sm:h-[9px] bg-white/[.14] rounded-md mb-2 sm:mb-3" />
+						<div className="relative z-2 bg-linear-to-br from-[#243a63] to-navy rounded-t-[14px] sm:rounded-t-[18px] lg:rounded-t-[20px] rounded-b-xl sm:rounded-b-2xl px-3 sm:px-4 pt-3 sm:pt-4 pb-3.5 sm:pb-5 shadow-[0_24px_44px_rgba(18,35,63,.3)]">
+							<div className="h-1.5 sm:h-2.25 bg-white/[.14] rounded-md mb-2 sm:mb-3" />
 							<div className="flex items-center justify-between">
-								<div className="flex gap-[4px] sm:gap-[6px]">
-									<span className="w-[6px] sm:w-[9px] h-[6px] sm:h-[9px] rounded-full bg-green shadow-[0_0_8px_rgba(0,217,163,.9)] animate-[cpTap_1.8s_ease-in-out_infinite]" />
-									<span className="w-[6px] sm:w-[9px] h-[6px] sm:h-[9px] rounded-full bg-white/[.28]" />
+								<div className="flex gap-1 sm:gap-1.5">
+									<span className="w-1.5 sm:w-2.25 h-1.5 sm:h-2.25 rounded-full bg-green shadow-[0_0_8px_rgba(0,217,163,.9)] animate-[cpTap_1.8s_ease-in-out_infinite]" />
+									<span className="w-1.5 sm:w-2.25 h-1.5 sm:h-2.25 rounded-full bg-white/[.28]" />
 								</div>
 								<div className="font-sora font-bold text-[8px] sm:text-[10px] lg:text-[11px] text-white/70 tracking-[.5px]">CLICKPRINT</div>
 							</div>
-							<div className="mt-2 sm:mt-3 h-[24px] sm:h-[30px] lg:h-[34px] bg-black/[.22] rounded-md sm:rounded-lg flex items-center justify-center gap-[5px] sm:gap-[7px]">
-								<span className="w-[9px] sm:w-[11px] lg:w-[13px] h-[9px] sm:h-[11px] lg:h-[13px] border-[2px] sm:border-[2.5px] border-white/35 border-t-green rounded-full animate-[cpSpin_1s_linear_infinite]" />
+							<div className="mt-2 sm:mt-3 h-6 sm:h-7.5 lg:h-8.5 bg-black/22 rounded-md sm:rounded-lg flex items-center justify-center gap-1.25 sm:gap-1.75">
+								<span className="w-2.25 sm:w-2.75 lg:w-3.25 h-2.25 sm:h-2.75 lg:h-3.25 border-2 sm:border-[2.5px] border-white/35 border-t-green rounded-full animate-[cpSpin_1s_linear_infinite]" />
 								<span className="text-white/75 text-[8px] sm:text-[10px] lg:text-[11px] font-bold">Printing job #4821…</span>
 							</div>
 						</div>
 						{/* output tray */}
-						<div className="h-[10px] sm:h-[14px] bg-navy-deep rounded-b-[10px] sm:rounded-b-[14px] mx-3 sm:mx-4 shadow-[0_12px_20px_rgba(18,35,63,.22)]" />
+						<div className="h-2.5 sm:h-3.5 bg-navy-deep rounded-b-[10px] sm:rounded-b-[14px] mx-3 sm:mx-4 shadow-[0_12px_20px_rgba(18,35,63,.22)]" />
 					</div>
 				</div>
 			</div>
@@ -171,11 +171,11 @@ function StatsStrip() {
 		{ value: "600+", label: "Partner shops", color: "text-coral" },
 	];
 	return (
-		<section className="pt-[14px] pb-8 sm:pb-11">
+		<section className="pt-3.5 pb-8 sm:pb-11">
 			<div className="cp-in">
-				<div className="bg-navy rounded-[20px] sm:rounded-[28px] px-5 sm:px-[30px] py-7 sm:py-[38px] grid grid-cols-2 sm:grid-cols-4 gap-5 shadow-[0_30px_60px_rgba(18,35,63,.22)] relative overflow-hidden">
+				<div className="bg-navy rounded-[20px] sm:rounded-[28px] px-5 sm:px-7.5 py-7 sm:py-9.5 grid grid-cols-2 sm:grid-cols-4 gap-5 shadow-[0_30px_60px_rgba(18,35,63,.22)] relative overflow-hidden">
 					<div
-						className="absolute -right-10 -top-10 w-[220px] h-[220px] rounded-full"
+						className="absolute -right-10 -top-10 w-55 h-55 rounded-full"
 						style={{ background: "radial-gradient(circle,rgba(0,217,163,.18),transparent 70%)" }}
 					/>
 					{stats.map((s) => (
@@ -196,13 +196,13 @@ function HowItWorks() {
 			n: "1",
 			badge: "bg-[rgba(59,158,255,.12)] text-blue",
 			title: "Register your shop",
-			text: "Fill a 2‑minute form. We verify your details and list you to nearby users.",
+			text: "Fill a 2-minute form. We verify your details and list you to nearby users.",
 		},
 		{
 			n: "2",
 			badge: "bg-[rgba(0,217,163,.12)] text-green-dark",
 			title: "Receive jobs instantly",
-			text: "Users upload and pay in the app. Pre‑paid orders land on your dashboard live.",
+			text: "Users upload and pay in the app. Pre-paid orders land on your dashboard live.",
 		},
 		{
 			n: "3",
@@ -218,19 +218,19 @@ function HowItWorks() {
 		},
 	];
 	return (
-		<section id="how" className="pt-10 sm:pt-[60px] pb-5">
+		<section id="how" className="pt-10 sm:pt-15 pb-5">
 			<div className="cp-in">
-				<div className="text-center max-w-[640px] mx-auto mb-8 sm:mb-[46px]">
+				<div className="text-center max-w-160 mx-auto mb-8 sm:mb-11.5">
 					<div className="font-sora font-bold text-[12px] sm:text-[13px] tracking-[.6px] text-blue uppercase">Up and running in a day</div>
 					<h2 className="font-sora font-extrabold text-[28px] sm:text-[34px] lg:text-[40px] tracking-[-1px] mt-3">How ClickPrint works for you</h2>
 				</div>
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
 					{steps.map((s) => (
-						<div key={s.n} className="cp-card-hover bg-white rounded-[22px] px-[22px] py-[26px] shadow-[0_2px_10px_rgba(143,155,179,.1)]">
+						<div key={s.n} className="cp-card-hover bg-white rounded-[22px] px-5.5 py-6.5 shadow-[0_2px_10px_rgba(143,155,179,.1)]">
 							<div className={`w-12 h-12 rounded-[14px] font-sora font-extrabold text-xl flex items-center justify-center ${s.badge}`}>
 								{s.n}
 							</div>
-							<h3 className="font-sora font-bold text-lg mt-[18px] mb-2">{s.title}</h3>
+							<h3 className="font-sora font-bold text-lg mt-4.5 mb-2">{s.title}</h3>
 							<p className="text-body text-[14.5px] leading-[1.6]">{s.text}</p>
 						</div>
 					))}
@@ -244,28 +244,28 @@ function WhyPartner() {
 	return (
 		<section id="why" className="pt-12 sm:pt-16 pb-5 scroll-mt-10">
 			<div className="cp-in">
-				<div className="max-w-[640px] mb-8 sm:mb-11 text-center sm:text-left">
+				<div className="max-w-160 mb-8 sm:mb-11 text-center sm:text-left">
 					<div className="font-sora font-bold text-[12px] sm:text-[13px] tracking-[.6px] text-green-dark uppercase">Why partner with us</div>
 					<h2 className="font-sora font-extrabold text-[28px] sm:text-[34px] lg:text-[40px] tracking-[-1px] mt-3">More income from the printer you already own.</h2>
 				</div>
-				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-[22px]">
-					<div className="cp-card-hover bg-coral rounded-3xl p-6 sm:p-[30px] text-white shadow-[0_18px_40px_rgba(255,139,123,.32)]">
-						<div className="w-[48px] sm:w-[52px] h-[48px] sm:h-[52px] rounded-[15px] bg-white/20 flex items-center justify-center text-xl sm:text-2xl">💸</div>
-						<h3 className="font-sora font-bold text-[19px] sm:text-[21px] mt-4 sm:mt-5 mb-[10px]">Earn more, effortlessly</h3>
-						<p className="text-[14px] sm:text-[15px] leading-[1.62] text-white/[.92]">
-							A steady stream of pre‑paid jobs fills your idle hours — every order is money in the bank before you print a page.
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-5.5">
+					<div className="cp-card-hover bg-coral rounded-3xl p-6 sm:p-7.5 text-white shadow-[0_18px_40px_rgba(255,139,123,.32)]">
+						<div className="w-12 sm:w-13 h-12 sm:h-13 rounded-[15px] bg-white/20 flex items-center justify-center text-xl sm:text-2xl">💸</div>
+						<h3 className="font-sora font-bold text-[19px] sm:text-[21px] mt-4 sm:mt-5 mb-2.5">Earn more, effortlessly</h3>
+						<p className="text-[14px] sm:text-[15px] leading-[1.62] text-white/92">
+							A steady stream of pre-paid jobs fills your idle hours — every order is money in the bank before you print a page.
 						</p>
 					</div>
-					<div className="cp-card-hover bg-blue rounded-3xl p-6 sm:p-[30px] text-white shadow-[0_18px_40px_rgba(59,158,255,.32)]">
-						<div className="w-[48px] sm:w-[52px] h-[48px] sm:h-[52px] rounded-[15px] bg-white/20 flex items-center justify-center text-xl sm:text-2xl">🎓</div>
-						<h3 className="font-sora font-bold text-[19px] sm:text-[21px] mt-4 sm:mt-5 mb-[10px]">Reach every user nearby</h3>
-						<p className="text-[14px] sm:text-[15px] leading-[1.62] text-white/[.92]">
-							Get discovered by thousands of users around you — no flyers, no ads, no walk‑in luck required.
+					<div className="cp-card-hover bg-blue rounded-3xl p-6 sm:p-7.5 text-white shadow-[0_18px_40px_rgba(59,158,255,.32)]">
+						<div className="w-12 sm:w-13 h-12 sm:h-13 rounded-[15px] bg-white/20 flex items-center justify-center text-xl sm:text-2xl">🎓</div>
+						<h3 className="font-sora font-bold text-[19px] sm:text-[21px] mt-4 sm:mt-5 mb-2.5">Reach every user nearby</h3>
+						<p className="text-[14px] sm:text-[15px] leading-[1.62] text-white/92">
+							Get discovered by thousands of users around you — no flyers, no ads, no walk-in luck required.
 						</p>
 					</div>
-					<div className="cp-card-hover bg-green rounded-3xl p-6 sm:p-[30px] text-[#063d31] shadow-[0_18px_40px_rgba(0,217,163,.32)] sm:col-span-2 lg:col-span-1">
-						<div className="w-[48px] sm:w-[52px] h-[48px] sm:h-[52px] rounded-[15px] bg-white/[.28] flex items-center justify-center text-xl sm:text-2xl">⚡</div>
-						<h3 className="font-sora font-bold text-[19px] sm:text-[21px] mt-4 sm:mt-5 mb-[10px]">Zero setup cost</h3>
+					<div className="cp-card-hover bg-green rounded-3xl p-6 sm:p-7.5 text-[#063d31] shadow-[0_18px_40px_rgba(0,217,163,.32)] sm:col-span-2 lg:col-span-1">
+						<div className="w-12 sm:w-13 h-12 sm:h-13 rounded-[15px] bg-white/[.28] flex items-center justify-center text-xl sm:text-2xl">⚡</div>
+						<h3 className="font-sora font-bold text-[19px] sm:text-[21px] mt-4 sm:mt-5 mb-2.5">Zero setup cost</h3>
 						<p className="text-[14px] sm:text-[15px] leading-[1.62] text-[rgba(6,61,49,.82)]">
 							Keep your printer. No new machines, no monthly fee, no commitment. Free to join and free to pause any time.
 						</p>
@@ -278,26 +278,26 @@ function WhyPartner() {
 
 function DownloadApp() {
 	return (
-		<section id="download" className="pt-12 sm:pt-[72px] pb-5 scroll-mt-10">
+		<section id="download" className="pt-12 sm:pt-18 pb-5 scroll-mt-10">
 			<div className="cp-in">
-				<div className="bg-gradient-to-br from-[#1b3a6b] to-navy rounded-[22px] sm:rounded-[30px] p-7 sm:p-10 lg:p-[52px] grid grid-cols-1 md:grid-cols-[1.2fr_.8fr] gap-8 sm:gap-11 items-center relative overflow-hidden shadow-[0_30px_70px_rgba(18,35,63,.28)]">
+				<div className="bg-linear-to-br from-[#1b3a6b] to-navy rounded-[22px] sm:rounded-[30px] p-7 sm:p-10 lg:p-13 grid grid-cols-1 md:grid-cols-[1.2fr_.8fr] gap-8 sm:gap-11 items-center relative overflow-hidden shadow-[0_30px_70px_rgba(18,35,63,.28)]">
 					<div
-						className="absolute -left-[60px] -bottom-20 w-[280px] h-[280px] rounded-full"
+						className="absolute -left-15 -bottom-20 w-70 h-70 rounded-full"
 						style={{ background: "radial-gradient(circle,rgba(24,184,201,.22),transparent 70%)" }}
 					/>
 					<div className="relative text-center md:text-left">
 						<div className="font-sora font-bold text-[12px] sm:text-[13px] tracking-[.6px] text-[#18b8c9] uppercase">The ClickPrint Desktop app</div>
-						<h2 className="font-sora font-extrabold text-[26px] sm:text-[32px] lg:text-[38px] tracking-[-1px] text-white mt-3 mb-3 sm:mb-[14px] leading-[1.1] sm:leading-[1.08]">
+						<h2 className="font-sora font-extrabold text-[26px] sm:text-[32px] lg:text-[38px] tracking-[-1px] text-white mt-3 mb-3 sm:mb-3.5 leading-[1.1] sm:leading-[1.08]">
 							Manage every job from your desktop.
 						</h2>
-						<p className="text-white/[.72] text-[14.5px] sm:text-base leading-[1.62] max-w-[440px] mx-auto md:mx-0 mb-6 sm:mb-7">
+						<p className="text-white/72 text-[14.5px] sm:text-base leading-[1.62] max-w-110 mx-auto md:mx-0 mb-6 sm:mb-7">
 							Accept orders, track your print queue, toggle your shop online, and watch your earnings grow — all from one app. Scan
 							the code or click below to get started.
 						</p>
-						<div className="flex flex-wrap gap-[14px] justify-center md:justify-start">
+						<div className="flex flex-wrap gap-3.5 justify-center md:justify-start">
 							<a
 								href="#download"
-								className="cp-storebadge flex items-center gap-[11px] bg-black rounded-[14px] px-[18px] py-[11px] cursor-pointer"
+								className="cp-storebadge flex items-center gap-2.75 bg-black rounded-[14px] px-4.5 py-2.75 cursor-pointer"
 							>
 								<span className="leading-[1.1]">
 									<span className="block font-sora font-bold text-[15px] sm:text-base text-white">Download Now</span>
@@ -307,7 +307,7 @@ function DownloadApp() {
 					</div>
 					<div className="relative flex justify-center">
 						<div className="bg-white rounded-[20px] sm:rounded-[26px] p-4 sm:p-5 shadow-[0_24px_50px_rgba(0,0,0,.3)]">
-							<img src={qrCode} alt="Scan to download ClickPrint" className="w-[140px] sm:w-[170px] lg:w-[196px] h-[140px] sm:h-[170px] lg:h-[196px] block rounded-lg sm:rounded-xl" />
+							<img src={qrCode} alt="Scan to download ClickPrint" className="w-35 sm:w-42.5 lg:w-49 h-35 sm:h-42.5 lg:h-49 block rounded-lg sm:rounded-xl" />
 							<div className="text-center mt-2.5 sm:mt-3 font-sora font-bold text-[12px] sm:text-[13.5px] text-ink">Scan to download</div>
 						</div>
 					</div>
@@ -320,7 +320,7 @@ function DownloadApp() {
 function Testimonials() {
 	const items = [
 		{
-			quote: "\u201cMy printer used to sit idle till noon. Now I get 40-60 pre‑paid jobs before the first class ends. It's honestly changed my month.\u201d",
+			quote: "\u201cMy printer used to sit idle till noon. Now I get 40-60 pre-paid jobs before the first class ends. It's honestly changed my month.\u201d",
 			initial: "A",
 			avatar: "from-coral to-coral-deep",
 			name: "Adeel Q.",
@@ -342,20 +342,20 @@ function Testimonials() {
 		},
 	];
 	return (
-		<section className="pt-12 sm:pt-[72px] pb-5">
+		<section className="pt-12 sm:pt-18 pb-5">
 			<div className="cp-in">
-				<div className="text-center max-w-[640px] mx-auto mb-8 sm:mb-[46px]">
+				<div className="text-center max-w-160 mx-auto mb-8 sm:mb-11.5">
 					<div className="font-sora font-bold text-[12px] sm:text-[13px] tracking-[.6px] text-coral-deep uppercase">Loved by shop owners</div>
 					<h2 className="font-sora font-extrabold text-[28px] sm:text-[34px] lg:text-[40px] tracking-[-1px] mt-3">Shops are already cashing in</h2>
 				</div>
-				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-[22px]">
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-5.5">
 					{items.map((t) => (
 						<div key={t.name} className="cp-card-hover bg-white rounded-[22px] p-6 sm:p-7 shadow-[0_2px_12px_rgba(143,155,179,.12)]">
 							<div className="text-coral text-[15px] tracking-[2px]">★★★★★</div>
-							<p className="text-[14.5px] sm:text-[15.5px] leading-[1.65] text-[#37405c] mt-3 sm:mt-[14px] mb-5 sm:mb-[22px] font-medium">{t.quote}</p>
+							<p className="text-[14.5px] sm:text-[15.5px] leading-[1.65] text-[#37405c] mt-3 sm:mt-3.5 mb-5 sm:mb-5.5 font-medium">{t.quote}</p>
 							<div className="flex items-center gap-3">
 								<div
-									className={`w-10 sm:w-11 h-10 sm:h-11 rounded-full bg-gradient-to-br ${t.avatar} flex items-center justify-center text-white font-sora font-bold text-[15px] sm:text-base`}
+									className={`w-10 sm:w-11 h-10 sm:h-11 rounded-full bg-linear-to-br ${t.avatar} flex items-center justify-center text-white font-sora font-bold text-[15px] sm:text-base`}
 								>
 									{t.initial}
 								</div>
@@ -381,11 +381,11 @@ function Faq() {
 		},
 		{
 			q: "How and when do I get paid?",
-			a: "Every order is pre‑paid by the student, so you never chase money. Your earnings are totalled up and settled straight to your bank account on a weekly cycle.",
+			a: "Every order is pre-paid by the student, so you never chase money. Your earnings are totalled up and settled straight to your bank account on a weekly cycle.",
 		},
 		{
 			q: "Who sets the printing prices?",
-			a: "You do. You set your per‑page rates for black‑and‑white, color, and binding during onboarding, and you can update them any time from the app.",
+			a: "You do. You set your per-page rates for black-and-white, color, and binding during onboarding, and you can update them any time from the app.",
 		},
 		{
 			q: "What does it cost to join?",
@@ -397,13 +397,13 @@ function Faq() {
 		},
 		{
 			q: "How do students find my shop?",
-			a: "Once verified, your shop appears to students on nearby campuses, ranked by distance and rating. The closer and better‑rated you are, the more jobs you receive.",
+			a: "Once verified, your shop appears to students on nearby campuses, ranked by distance and rating. The closer and better-rated you are, the more jobs you receive.",
 		},
 	];
 	return (
-		<section id="faq" className="pt-12 sm:pt-[72px] pb-5 scroll-mt-10">
-			<div className="cp-in max-w-[840px]">
-				<div className="text-center mx-auto mb-6 sm:mb-[34px]">
+		<section id="faq" className="pt-12 sm:pt-18 pb-5 scroll-mt-10">
+			<div className="cp-in max-w-210">
+				<div className="text-center mx-auto mb-6 sm:mb-8.5">
 					<div className="font-sora font-bold text-[12px] sm:text-[13px] tracking-[.6px] text-blue uppercase">Questions from shop owners</div>
 					<h2 className="font-sora font-extrabold text-[28px] sm:text-[34px] lg:text-[40px] tracking-[-1px] mt-3">Everything you're wondering</h2>
 				</div>
@@ -423,20 +423,20 @@ function Faq() {
 
 function FinalCta({ onRegister }: HomePageProps) {
 	return (
-		<section className="pt-12 sm:pt-[72px] pb-10">
+		<section className="pt-12 sm:pt-18 pb-10">
 			<div className="cp-in">
 				<div className="bg-green rounded-[22px] sm:rounded-[30px] px-6 sm:px-10 py-10 sm:py-14 text-center relative overflow-hidden shadow-[0_30px_60px_rgba(0,217,163,.3)]">
-					<div className="absolute -right-10 -top-[60px] w-40 sm:w-60 h-40 sm:h-60 rounded-full bg-white/[.14]" />
-					<div className="absolute -left-[50px] -bottom-[70px] w-[150px] sm:w-[200px] h-[150px] sm:h-[200px] rounded-full bg-white/10" />
-					<h2 className="relative font-sora font-extrabold text-[28px] sm:text-[36px] lg:text-[42px] tracking-[-1px] sm:tracking-[-1.2px] text-[#053a2e] mb-3 sm:mb-[14px]">
+					<div className="absolute -right-10 -top-15 w-40 sm:w-60 h-40 sm:h-60 rounded-full bg-white/[.14]" />
+					<div className="absolute -left-12.5 -bottom-17.5 w-37.5 sm:w-50 h-37.5 sm:h-50 rounded-full bg-white/10" />
+					<h2 className="relative font-sora font-extrabold text-[28px] sm:text-[36px] lg:text-[42px] tracking-[-1px] sm:tracking-[-1.2px] text-[#053a2e] mb-3 sm:mb-3.5">
 						Ready to fill your print queue?
 					</h2>
-					<p className="relative text-[15px] sm:text-[17.5px] text-[rgba(5,58,46,.82)] max-w-[520px] mx-auto mb-6 sm:mb-[30px] font-semibold">
-						Register in two minutes and start receiving pre‑paid jobs.
+					<p className="relative text-[15px] sm:text-[17.5px] text-[rgba(5,58,46,.82)] max-w-130 mx-auto mb-6 sm:mb-7.5 font-semibold">
+						Register in two minutes and start receiving pre-paid jobs.
 					</p>
 					<button
 						onClick={onRegister}
-						className="cp-btn-primary relative border-none cursor-pointer font-manrope font-extrabold text-[15px] sm:text-[16.5px] text-white bg-coral px-7 sm:px-[38px] py-4 sm:py-[17px] rounded-[14px] shadow-[0_14px_34px_rgba(255,123,107,.4)]"
+						className="cp-btn-primary relative border-none cursor-pointer font-manrope font-extrabold text-[15px] sm:text-[16.5px] text-white bg-coral px-7 sm:px-9.5 py-4 sm:py-4.25 rounded-[14px] shadow-[0_14px_34px_rgba(255,123,107,.4)]"
 					>
 						Register your shop
 					</button>
