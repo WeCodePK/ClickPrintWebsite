@@ -6,9 +6,9 @@ interface FooterProps {
 
 export default function Footer({ onRegister }: FooterProps) {
   return (
-    <footer className="bg-navy text-white pt-15 pb-8 mt-5">
+    <footer className="bg-navy text-white pt-12 sm:pt-15 pb-8 mt-5">
       <div className="cp-in">
-        <div className="grid grid-cols-[1.6fr_1fr_1fr_1fr] gap-9 pb-10 border-b border-white/10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr] gap-8 sm:gap-9 pb-10 border-b border-white/10">
           <div>
             <div className="bg-white rounded-[14px] px-3.5 py-2 inline-block">
               <img src={logo} alt="ClickPrint" className="h-8.5 block" />
@@ -47,7 +47,7 @@ export default function Footer({ onRegister }: FooterProps) {
             </div>
           </div>
         </div>
-        <div className="flex justify-between items-center flex-wrap gap-3 pt-6 text-[13px] text-white/50">
+        <div className="flex flex-col sm:flex-row justify-between items-center flex-wrap gap-3 pt-6 text-[13px] text-white/50">
           <div>© 2026 ClickPrint. A product of <a href="https://wecode.com.pk/" target="_blank" className="text-white/70 hover:text-white/80 transition-colors duration-200 cursor-pointer">WeCode</a>.</div>
           <div className="flex gap-5.5">
             <a href="https://wecode.com.pk/privacy" target='_blank'>Privacy</a>

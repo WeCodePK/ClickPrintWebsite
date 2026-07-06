@@ -91,50 +91,50 @@ export default function RegisterPage({ onHome, onRegister }: RegisterPageProps) 
 	return (
 		<>
 			<main className="min-h-[calc(100vh-74px)]">
-			<div className="relative overflow-hidden pt-10">
+			<div className="relative overflow-hidden pt-6 sm:pt-10">
 				<div
 					className="absolute inset-0"
 					style={{
 						background: "radial-gradient(800px 400px at 85% -10%, rgba(59,158,255,.1), transparent 60%),radial-gradient(700px 400px at 0% 6%, rgba(0,217,163,.08), transparent 60%)",
 					}}
 				/>
-				<div className="cp-in relative max-w-240 pt-11 pb-20">
-					<a onClick={onHome} className="cursor-pointer inline-flex items-center gap-1.75 text-muted font-bold text-sm mb-5.5">
+				<div className="cp-in relative max-w-240 pt-8 sm:pt-11 pb-14 sm:pb-20">
+					<a onClick={onHome} className="cursor-pointer inline-flex items-center gap-1.75 text-muted font-bold text-sm mb-4 sm:mb-5.5">
 						← Back to home
 					</a>
 
 					{submitted ? (
 						/* success */
-						<div className="cp-rise bg-white rounded-[26px] px-10 py-14 text-center shadow-[0_20px_50px_rgba(143,155,179,.16)] max-w-140 mx-auto my-10">
-							<div className="w-21 h-21 rounded-full bg-[rgba(0,217,163,.14)] flex items-center justify-center mx-auto mb-6">
-								<div className="w-13 h-13 rounded-full bg-green flex items-center justify-center text-white text-[28px] font-extrabold">
+						<div className="cp-rise bg-white rounded-[22px] sm:rounded-[26px] px-6 sm:px-10 py-10 sm:py-14 text-center shadow-[0_20px_50px_rgba(143,155,179,.16)] max-w-140 mx-auto my-6 sm:my-10">
+							<div className="w-18 sm:w-21 h-18 sm:h-21 rounded-full bg-[rgba(0,217,163,.14)] flex items-center justify-center mx-auto mb-5 sm:mb-6">
+								<div className="w-11 sm:w-13 h-11 sm:h-13 rounded-full bg-green flex items-center justify-center text-white text-[24px] sm:text-[28px] font-extrabold">
 									✓
 								</div>
 							</div>
-							<h2 className="font-sora font-extrabold text-[30px] tracking-[-.8px] mb-3">Application received!</h2>
-							<p className="text-body text-base leading-[1.6] max-w-100 mx-auto mb-7">
+							<h2 className="font-sora font-extrabold text-[24px] sm:text-[30px] tracking-[-.8px] mb-3">Application received!</h2>
+							<p className="text-body text-[14.5px] sm:text-base leading-[1.6] max-w-100 mx-auto mb-6 sm:mb-7">
 								Thanks, {ownerFirst}. Our team will verify <b>{shopNameOut}</b> and reach out on WhatsApp within 24 hours to get you
 								live.
 							</p>
 							<button
 								onClick={onHome}
-								className="cp-btn-primary border-none cursor-pointer font-manrope font-bold text-[15.5px] text-white bg-coral px-8 py-3.75 rounded-[13px]"
+								className="cp-btn-primary border-none cursor-pointer font-manrope font-bold text-[15px] sm:text-[15.5px] text-white bg-coral px-7 sm:px-8 py-3.5 sm:py-3.75 rounded-[13px]"
 							>
 								Back to home
 							</button>
 						</div>
 					) : (
-						<div className="grid grid-cols-[1fr_320px] gap-8.5 items-start pb-15">
+						<div className="grid grid-cols-1 md:grid-cols-[1fr_320px] gap-6 sm:gap-8.5 items-start pb-10 sm:pb-15">
 							{/* form card */}
-							<div className="bg-white rounded-[26px] p-9 shadow-[0_16px_44px_rgba(143,155,179,.14)]">
-								<div className="font-sora font-bold text-[13px] tracking-[.6px] text-coral-deep uppercase">Shop registration</div>
-								<h1 className="font-sora font-extrabold text-[32px] tracking-[-1px] mt-2.5 mb-1.5">
+							<div className="bg-white rounded-[22px] sm:rounded-[26px] p-6 sm:p-9 shadow-[0_16px_44px_rgba(143,155,179,.14)]">
+								<div className="font-sora font-bold text-[12px] sm:text-[13px] tracking-[.6px] text-coral-deep uppercase">Shop registration</div>
+								<h1 className="font-sora font-extrabold text-[26px] sm:text-[32px] tracking-[-1px] mt-2.5 mb-1.5">
 									Register your print shop
 								</h1>
-								<p className="text-muted text-[15px] mb-7">Takes about 2 minutes. All fields marked {required} are required.</p>
+								<p className="text-muted text-[14px] sm:text-[15px] mb-6 sm:mb-7">Takes about 2 minutes. All fields marked {required} are required.</p>
 
-								<div className="grid grid-cols-2 gap-4.5">
-									<div className="col-span-2">
+								<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-4.5">
+									<div className="sm:col-span-2">
 										<label className={label}>Owner name {required}</label>
 										<input
 											className="cp-inp"
@@ -144,7 +144,7 @@ export default function RegisterPage({ onHome, onRegister }: RegisterPageProps) 
 											onChange={setF("ownerName")}
 										/>
 									</div>
-									<div className="col-span-2">
+									<div className="sm:col-span-2">
 										<label className={label}>Shop name {required}</label>
 										<input
 											className="cp-inp"
@@ -154,7 +154,7 @@ export default function RegisterPage({ onHome, onRegister }: RegisterPageProps) 
 											onChange={setF("shopName")}
 										/>
 									</div>
-									<div className="col-span-2">
+									<div className="sm:col-span-2">
 										<label className={label}>WhatsApp number {required}</label>
 										<div className="flex gap-2">
 											<input
@@ -169,7 +169,7 @@ export default function RegisterPage({ onHome, onRegister }: RegisterPageProps) 
 									
 
 									{/* address */}
-									<div className="col-span-2">
+									<div className="sm:col-span-2">
 										<label className={label}>Shop address {required}</label>
 										<textarea
 											className="cp-inp resize-y"
@@ -183,7 +183,7 @@ export default function RegisterPage({ onHome, onRegister }: RegisterPageProps) 
 
 								{/* error */}
 								{error && (
-									<div className="mt-5 bg-[rgba(255,139,123,.12)] border border-[rgba(255,139,123,.35)] rounded-xl px-4 py-3.25 text-[#d0432e] text-[13.5px] font-semibold">
+									<div className="mt-4 sm:mt-5 bg-[rgba(255,139,123,.12)] border border-[rgba(255,139,123,.35)] rounded-xl px-4 py-3 sm:py-3.25 text-[#d0432e] text-[13px] sm:text-[13.5px] font-semibold">
 										{error}
 									</div>
 								)}
@@ -191,41 +191,41 @@ export default function RegisterPage({ onHome, onRegister }: RegisterPageProps) 
 								<button
 									onClick={submit}
 									disabled={submitting}
-									className="cp-btn-primary mt-6.5 w-full border-none cursor-pointer font-manrope font-extrabold text-[16.5px] text-white bg-coral p-4.25 rounded-[14px] shadow-[0_12px_30px_rgba(255,139,123,.35)] disabled:opacity-60 disabled:cursor-not-allowed"
+									className="cp-btn-primary mt-5 sm:mt-6.5 w-full border-none cursor-pointer font-manrope font-extrabold text-[15.5px] sm:text-[16.5px] text-white bg-coral p-3.75 sm:p-4.25 rounded-[14px] shadow-[0_12px_30px_rgba(255,139,123,.35)] disabled:opacity-60 disabled:cursor-not-allowed"
 								>
 									{submitting ? "Submitting…" : "Submit registration"}
 								</button>
-								<div className="text-center text-[12.5px] text-muted mt-3.5">
+								<div className="text-center text-[12px] sm:text-[12.5px] text-muted mt-3 sm:mt-3.5">
 									By submitting you agree to our terms and services. We&apos;ll contact you soon.
 								</div>
 							</div>
 
 							{/* aside */}
-							<aside className="sticky flex flex-col gap-4.5">
-								<div className="bg-navy rounded-[22px] p-6.5 text-white shadow-[0_16px_40px_rgba(18,35,63,.2)]">
-									<div className="font-sora font-extrabold text-[19px] mb-4.5">What happens next</div>
-									<div className="flex flex-col gap-4">
-										<div className="flex gap-3.25">
+							<aside className="sticky flex flex-col gap-4.5 order-first md:order-last">
+								<div className="bg-navy rounded-[22px] p-5 sm:p-6.5 text-white shadow-[0_16px_40px_rgba(18,35,63,.2)]">
+									<div className="font-sora font-extrabold text-[17px] sm:text-[19px] mb-4 sm:mb-4.5">What happens next</div>
+									<div className="flex flex-col gap-3.5 sm:gap-4">
+										<div className="flex gap-3 sm:gap-3.25">
 											<span className="flex-none w-7 h-7 rounded-full bg-[rgba(0,217,163,.2)] text-green font-extrabold text-[13px] flex items-center justify-center">
 												1
 											</span>
-											<div className="text-[13.5px] text-white/82 leading-normal">
+											<div className="text-[13px] sm:text-[13.5px] text-white/82 leading-normal">
 												We verify your shop details
 											</div>
 										</div>
-										<div className="flex gap-3.25">
+										<div className="flex gap-3 sm:gap-3.25">
 											<span className="flex-none w-7 h-7 rounded-full bg-[rgba(59,158,255,.2)] text-blue font-extrabold text-[13px] flex items-center justify-center">
 												2
 											</span>
-											<div className="text-[13.5px] text-white/82 leading-normal">
+											<div className="text-[13px] sm:text-[13.5px] text-white/82 leading-normal">
 												Our represantative contacts you on WhatsApp
 											</div>
 										</div>
-										<div className="flex gap-3.25">
+										<div className="flex gap-3 sm:gap-3.25">
 											<span className="flex-none w-7 h-7 rounded-full bg-[rgba(255,139,123,.2)] text-coral font-extrabold text-[13px] flex items-center justify-center">
 												3
 											</span>
-											<div className="text-[13.5px] text-white/82 leading-normal">
+											<div className="text-[13px] sm:text-[13.5px] text-white/82 leading-normal">
 												You go live &amp; jobs start flowing in
 											</div>
 										</div>

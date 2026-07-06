@@ -46,7 +46,12 @@ a {
 	width: 100%;
 	max-width: 1160px;
 	margin: 0 auto;
-	padding: 0 24px;
+	padding: 0 16px;
+}
+@media (min-width: 640px) {
+	.cp-in {
+		padding: 0 24px;
+	}
 }
 
 /* FAQ accordion */
@@ -56,15 +61,22 @@ details.cp-faq {
 details.cp-faq summary {
 	list-style: none;
 	cursor: pointer;
-	padding: 22px 4px;
+	padding: 16px 4px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	gap: 16px;
+	gap: 12px;
 	font-family: "Sora";
 	font-weight: 600;
-	font-size: 18px;
+	font-size: 15.5px;
 	color: #1a1f36;
+}
+@media (min-width: 640px) {
+	details.cp-faq summary {
+		padding: 22px 4px;
+		gap: 16px;
+		font-size: 18px;
+	}
 }
 details.cp-faq summary::-webkit-details-marker {
 	display: none;
@@ -88,11 +100,18 @@ details.cp-faq[open] .cp-plus {
 	transform: rotate(45deg);
 }
 details.cp-faq .cp-ans {
-	padding: 0 4px 22px;
+	padding: 0 4px 16px;
 	color: #5b6480;
-	font-size: 15.5px;
-	line-height: 1.65;
+	font-size: 14px;
+	line-height: 1.6;
 	max-width: 760px;
+}
+@media (min-width: 640px) {
+	details.cp-faq .cp-ans {
+		padding: 0 4px 22px;
+		font-size: 15.5px;
+		line-height: 1.65;
+	}
 }
 
 /* keyframes */
