@@ -6,16 +6,70 @@ interface HomePageProps {
 	onRegister: () => void;
 }
 
+function DownloadButton({ label, openUp = false }: { label: string; openUp?: boolean }) {
+	return (
+		<div className="relative group">
+			<a
+				href="/Click%20Print%20Desktop%20Installer.exe"
+				download
+				className="cp-btn-primary inline-flex items-center gap-2 cursor-pointer font-manrope font-bold text-[15px] sm:text-base text-white bg-blue px-5 sm:px-6.5 py-3.5 sm:py-4 rounded-[14px] shadow-[0_8px_22px_rgba(59,158,255,.32)]"
+			>
+				{label}
+				<svg
+					viewBox="0 0 16 16"
+					className="w-4 h-4 flex-none transition-transform duration-200 group-hover:rotate-180"
+					fill="none"
+					stroke="currentColor"
+					strokeWidth="2.5"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+				>
+					<path d="M3.5 6 8 10.5 12.5 6" />
+				</svg>
+			</a>
+			{/* hover dropdown */}
+			<div
+				className={`absolute left-0 ${openUp ? "bottom-full pb-2 translate-y-1" : "top-full pt-2 translate-y-1"} w-full min-w-65 z-20 invisible opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0`}
+			>
+				<div className="bg-white border-[1.5px] border-line rounded-[14px] shadow-[0_16px_40px_rgba(18,35,63,.14)] overflow-hidden text-left">
+					<a
+						href="/Click%20Print%20Desktop%20Installer.exe"
+						download
+						className="flex items-center gap-3 px-4.5 py-3.5 transition-colors hover:bg-[rgba(59,158,255,.08)]"
+					>
+						<span className="flex-none w-9 h-9 rounded-[10px] bg-[rgba(59,158,255,.12)] text-blue flex items-center justify-center text-base">⬇</span>
+						<span>
+							<span className="block font-bold text-[14px] text-ink">Installer (.exe)</span>
+							<span className="block text-[12px] text-muted font-semibold">Recommended · installs on your PC</span>
+						</span>
+					</a>
+					<a
+						href="/Click%20Print%20Desktop%20Portable.exe"
+						download
+						className="flex items-center gap-3 px-4.5 py-3.5 border-t border-line/70 transition-colors hover:bg-[rgba(59,158,255,.08)]"
+					>
+						<span className="flex-none w-9 h-9 rounded-[10px] bg-[rgba(0,217,163,.12)] text-green-dark flex items-center justify-center text-base">⚡</span>
+						<span>
+							<span className="block font-bold text-[14px] text-ink">Portable (.exe)</span>
+							<span className="block text-[12px] text-muted font-semibold">No install needed · run anywhere</span>
+						</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	);
+}
+
 function Hero({ onRegister }: HomePageProps) {
 	return (
-		<section className="relative overflow-hidden pt-6 sm:pt-10">
+		<section className="relative z-30 overflow-hidden flex items-center min-h-[calc(100svh-64px)] sm:min-h-[calc(100svh-74px)]">
 			<div
 				className="absolute inset-0"
 				style={{
 					background: "radial-gradient(1000px 520px at 82% -8%, rgba(59,158,255,.10), transparent 60%),radial-gradient(760px 480px at 6% 12%, rgba(0,217,163,.09), transparent 62%)",
 				}}
 			/>
-			<div className="cp-in relative grid grid-cols-1 lg:grid-cols-[1.02fr_.98fr] gap-8 lg:gap-10 items-center pt-10 sm:pt-16 pb-12 sm:pb-19">
+			<div className="cp-in relative grid grid-cols-1 lg:grid-cols-[1.02fr_.98fr] gap-8 lg:gap-10 items-center py-10 sm:py-14">
 				{/* copy */}
 				<div className="text-center lg:text-left">
 					<h1 className="cp-rise [animation-delay:.08s] font-sora font-extrabold text-[32px] sm:text-[42px] lg:text-[56px] leading-[1.08] lg:leading-[1.04] tracking-[-1px] lg:tracking-[-1.5px] mb-4 sm:mb-5">
@@ -26,21 +80,20 @@ function Hero({ onRegister }: HomePageProps) {
 						ClickPrint streams thousands of pre-paid print jobs straight to your shop. You print, you earn - no new hardware, no chasing
 						customers.
 					</p>
-					<div className="cp-rise [animation-delay:.2s] flex flex-wrap gap-3 sm:gap-3.5 items-center justify-center lg:justify-start">
+					<div className="cp-rise [animation-delay:.2s] relative z-40 flex flex-wrap gap-3 sm:gap-3.5 items-start justify-center lg:justify-start">
 						<button
 							onClick={onRegister}
 							className="cp-btn-primary border-none cursor-pointer font-manrope font-bold text-[15px] sm:text-base text-white bg-coral px-6 sm:px-7.5 py-3.5 sm:py-4 rounded-[14px] animate-[cpPulse_2.6s_ease-in-out_infinite]"
 						>
 							Register your shop
 						</button>
-						<a
-							href="#how"
-							className="cursor-pointer font-manrope font-bold text-[15px] sm:text-base text-ink bg-white border-[1.5px] border-line px-5 sm:px-6.5 py-3.5 sm:py-4 rounded-[14px] shadow-[0_2px_8px_rgba(143,155,179,.08)]"
-						>
-							See how it works
-						</a>
+						{/* download dropdown */}
+						<DownloadButton label="Download ClickPrint Desktop App" />
 					</div>
-					<div className="cp-rise [animation-delay:.28s] flex items-center gap-2.5 mt-5 sm:mt-6.5 text-muted text-[13px] sm:text-[13.5px] font-semibold justify-center lg:justify-start">
+					<div className="cp-rise [animation-delay:.24s] text-[11.5px] sm:text-[12px] text-muted font-semibold mt-3 text-center lg:text-left">
+						Available for Windows only, as of now
+					</div>
+					<div className="cp-rise [animation-delay:.28s] flex items-center gap-2.5 mt-4 sm:mt-5 text-muted text-[13px] sm:text-[13.5px] font-semibold justify-center lg:justify-start">
 						Joined by 600+ shops with 1000 users
 					</div>
 				</div>
@@ -159,6 +212,19 @@ function Hero({ onRegister }: HomePageProps) {
 					</div>
 				</div>
 			</div>
+			{/* scroll-down hint */}
+			<a
+				href="#how"
+				aria-label="Scroll down to see how it works"
+				className="absolute bottom-8 sm:bottom-11 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 cursor-pointer text-muted hover:text-ink transition-colors"
+			>
+				<span className="text-[10.5px] font-bold tracking-[1.5px] uppercase">Scroll</span>
+				<span className="w-10 h-10 rounded-full bg-white border-[1.5px] border-line shadow-[0_6px_18px_rgba(143,155,179,.22)] flex items-center justify-center animate-[cpScrollHint_1.8s_ease-in-out_infinite]">
+					<svg viewBox="0 0 16 16" className="w-4.5 h-4.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+						<path d="M8 3v10M3.5 8.5 8 13l4.5-4.5" />
+					</svg>
+				</span>
+			</a>
 		</section>
 	);
 }
@@ -291,24 +357,65 @@ function DownloadApp() {
 							Manage every job from your desktop.
 						</h2>
 						<p className="text-white/72 text-[14.5px] sm:text-base leading-[1.62] max-w-110 mx-auto md:mx-0 mb-6 sm:mb-7">
-							Accept orders, track your print queue, toggle your shop online, and watch your earnings grow — all from one app. Scan
-							the code or click below to get started.
+							Accept orders, track your print queue, toggle your shop online, and watch your earnings grow — all from one app.
+							Click below to get started.
 						</p>
 						<div className="flex flex-wrap gap-3.5 justify-center md:justify-start">
-							<a
-								href="#download"
-								className="cp-storebadge flex items-center gap-2.75 bg-black rounded-[14px] px-4.5 py-2.75 cursor-pointer"
-							>
-								<span className="leading-[1.1]">
-									<span className="block font-sora font-bold text-[15px] sm:text-base text-white">Download Now</span>
-								</span>
-							</a>
+							<DownloadButton label="Download Now" openUp />
+						</div>
+						<div className="text-[11.5px] sm:text-[12px] text-white/55 font-semibold mt-3">
+							Available for Windows only, as of now
 						</div>
 					</div>
+					{/* desktop app mockup */}
 					<div className="relative flex justify-center">
-						<div className="bg-white rounded-[20px] sm:rounded-[26px] p-4 sm:p-5 shadow-[0_24px_50px_rgba(0,0,0,.3)]">
-							<img src={qrCode} alt="Scan to download ClickPrint" className="w-35 sm:w-42.5 lg:w-49 h-35 sm:h-42.5 lg:h-49 block rounded-lg sm:rounded-xl" />
-							<div className="text-center mt-2.5 sm:mt-3 font-sora font-bold text-[12px] sm:text-[13.5px] text-ink">Scan to download</div>
+						<div className="w-full max-w-85">
+							{/* monitor */}
+							<div className="bg-white/10 border border-white/15 rounded-2xl sm:rounded-[20px] p-2 sm:p-2.5 shadow-[0_24px_50px_rgba(0,0,0,.3)]">
+								<div className="bg-navy-deep rounded-[10px] sm:rounded-[14px] overflow-hidden">
+									{/* title bar */}
+									<div className="flex items-center gap-1.5 px-3.5 py-2.5 border-b border-white/10">
+										<span className="w-2.5 h-2.5 rounded-full bg-coral" />
+										<span className="w-2.5 h-2.5 rounded-full bg-[#f5c644]" />
+										<span className="w-2.5 h-2.5 rounded-full bg-green" />
+										<span className="ml-auto font-sora font-bold text-[9.5px] text-white/50 tracking-[.5px]">CLICKPRINT DESKTOP</span>
+									</div>
+									{/* queue */}
+									<div className="p-3.5 sm:p-4">
+										<div className="flex items-center justify-between mb-3">
+											<div className="font-sora font-bold text-[12.5px] sm:text-[13.5px] text-white">Print queue</div>
+											<div className="flex items-center gap-1.5 text-[10px] font-bold text-green">
+												<span className="w-1.75 h-1.75 rounded-full bg-green animate-[cpTap_1.8s_ease-in-out_infinite]" />
+												Online
+											</div>
+										</div>
+										{[
+											{ name: "Thesis.pdf", meta: "24 pages · Color", status: "printing" },
+											{ name: "Slides_final.pdf", meta: "48 pages · B&W", status: "ready" },
+											{ name: "Lab_report.docx", meta: "12 pages · B&W", status: "ready" },
+										].map((job) => (
+											<div key={job.name} className="flex items-center gap-2.5 bg-white/8 rounded-[10px] px-3 py-2.5 mb-2 last:mb-0">
+												<span className="flex-none w-6.5 h-8 rounded-[5px] bg-linear-to-br from-blue to-[#2A8AEF]" />
+												<span className="flex-1 min-w-0">
+													<span className="block text-[11px] sm:text-[11.5px] font-bold text-white truncate">{job.name}</span>
+													<span className="block text-[9.5px] text-white/50 font-semibold">{job.meta}</span>
+												</span>
+												{job.status === "printing" ? (
+													<span className="flex-none flex items-center gap-1.5 text-[9.5px] font-bold text-white/70">
+														<span className="w-3 h-3 border-2 border-white/30 border-t-green rounded-full animate-[cpSpin_1s_linear_infinite]" />
+														Printing
+													</span>
+												) : (
+													<span className="flex-none text-[9.5px] font-bold text-green bg-green/15 rounded-full px-2 py-1">Ready</span>
+												)}
+											</div>
+										))}
+									</div>
+								</div>
+							</div>
+							{/* stand */}
+							<div className="w-16 h-4 bg-white/12 mx-auto" />
+							<div className="w-32 h-1.5 rounded-full bg-white/18 mx-auto" />
 						</div>
 					</div>
 				</div>

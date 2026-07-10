@@ -19,26 +19,33 @@
 	--color-line: #e4e9f2;
 }
 
-html {
-	scroll-behavior: smooth;
-}
+@layer base {
+	html {
+		scroll-behavior: smooth;
+	}
 
-body {
-	margin: 0;
-	background: #f7f8fa;
-	color: #1a1f36;
-	font-family: "Manrope", system-ui, sans-serif;
-	-webkit-font-smoothing: antialiased;
-}
+	body {
+		margin: 0;
+		background: #f7f8fa;
+		color: #1a1f36;
+		font-family: "Manrope", system-ui, sans-serif;
+		-webkit-font-smoothing: antialiased;
+	}
 
-::selection {
-	background: #ff8b7b;
-	color: #fff;
-}
+	::selection {
+		background: #ff8b7b;
+		color: #fff;
+	}
 
-a {
-	color: inherit;
-	text-decoration: none;
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	/* fixed header overlays content — keep anchored sections clear of it */
+	section[id] {
+		scroll-margin-top: 84px;
+	}
 }
 
 /* page container */
@@ -205,6 +212,17 @@ details.cp-faq .cp-ans {
 @keyframes cpSpin {
 	to {
 		transform: rotate(360deg);
+	}
+}
+@keyframes cpScrollHint {
+	0%,
+	100% {
+		transform: translateY(0) scale(1);
+		opacity: 0.75;
+	}
+	50% {
+		transform: translateY(7px) scale(1.12);
+		opacity: 1;
 	}
 }
 
