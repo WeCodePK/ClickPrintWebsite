@@ -51,14 +51,14 @@ function DownloadButton({ label, openUp = false }: { label: string; openUp?: boo
 
 function Hero({ onRegister }: HomePageProps) {
 	return (
-		<section className="relative z-30 overflow-hidden flex items-center min-h-[calc(100svh-64px)] sm:min-h-[calc(100svh-74px)]">
+		<section className="cp-hero relative z-30 overflow-hidden flex items-center min-h-[calc(100svh-64px)] sm:min-h-[calc(100svh-74px)]">
 			<div
 				className="absolute inset-0"
 				style={{
 					background: "radial-gradient(1000px 520px at 82% -8%, rgba(59,158,255,.10), transparent 60%),radial-gradient(760px 480px at 6% 12%, rgba(0,217,163,.09), transparent 62%)",
 				}}
 			/>
-			<div className="cp-in relative grid grid-cols-1 lg:grid-cols-[1.02fr_.98fr] gap-8 lg:gap-10 items-center py-10 sm:py-14">
+			<div className="cp-hero-in cp-in relative grid grid-cols-1 lg:grid-cols-[1.02fr_.98fr] gap-8 lg:gap-10 items-center py-10 sm:py-14">
 				{/* copy */}
 				<div className="text-center lg:text-left">
 					<h1 className="cp-rise [animation-delay:.08s] font-sora font-extrabold text-[32px] sm:text-[42px] lg:text-[56px] leading-[1.08] lg:leading-[1.04] tracking-[-1px] lg:tracking-[-1.5px] mb-4 sm:mb-5">
@@ -89,7 +89,8 @@ function Hero({ onRegister }: HomePageProps) {
 				</div>
 
 				{/* animated product flow scene */}
-				<div className="cp-rise [animation-delay:.18s] relative h-80 sm:h-96 lg:h-120 mx-auto lg:mx-0 w-full max-w-md lg:max-w-none">
+				<div className="cp-hero-scene-shell relative h-80 sm:h-96 lg:h-120 mx-auto lg:mx-0 w-full max-w-md lg:max-w-none">
+				<div className="cp-hero-scene cp-rise [animation-delay:.18s] relative h-full w-full">
 					{/* background floating doc chips */}
 					<div className="absolute inset-0 pointer-events-none">
 						<div
@@ -121,7 +122,7 @@ function Hero({ onRegister }: HomePageProps) {
 					</svg>
 
 					{/* phone */}
-					<div className="absolute left-[2%] top-4 sm:top-6.5 w-36 sm:w-44 lg:w-53.5 h-72 sm:h-88 lg:h-107 bg-navy rounded-[26px] sm:rounded-4xl lg:rounded-[38px] p-2 sm:p-2.75 shadow-[0_30px_60px_rgba(18,35,63,.28)] animate-[cpBob_5s_ease-in-out_infinite]">
+					<div className="cp-hero-phone absolute left-[2%] top-4 sm:top-6.5 w-36 sm:w-44 lg:w-53.5 h-72 sm:h-88 lg:h-107 bg-navy rounded-[26px] sm:rounded-4xl lg:rounded-[38px] p-2 sm:p-2.75 shadow-[0_30px_60px_rgba(18,35,63,.28)] animate-[cpBob_5s_ease-in-out_infinite]">
 						<div className="w-full h-full bg-cloud rounded-[20px] sm:rounded-3xl lg:rounded-[29px] overflow-hidden relative">
 							{/* notch */}
 							<div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 sm:w-20 lg:w-24 h-4 sm:h-5 lg:h-5.5 bg-navy rounded-b-xl sm:rounded-b-2xl z-3" />
@@ -201,12 +202,13 @@ function Hero({ onRegister }: HomePageProps) {
 						<div className="h-2.5 sm:h-3.5 bg-navy-deep rounded-b-[10px] sm:rounded-b-[14px] mx-3 sm:mx-4 shadow-[0_12px_20px_rgba(18,35,63,.22)]" />
 					</div>
 				</div>
+				</div>
 			</div>
 			{/* scroll-down hint */}
 			<a
 				href="#how"
 				aria-label="Scroll down to see how it works"
-				className="absolute bottom-8 sm:bottom-11 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 cursor-pointer text-muted hover:text-ink transition-colors"
+				className="cp-hero-scroll absolute bottom-8 sm:bottom-11 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 cursor-pointer text-muted hover:text-ink transition-colors"
 			>
 				<span className="text-[10.5px] font-bold tracking-[1.5px] uppercase">Scroll</span>
 				<span className="w-10 h-10 rounded-full bg-white border-[1.5px] border-line shadow-[0_6px_18px_rgba(143,155,179,.22)] flex items-center justify-center animate-[cpScrollHint_1.8s_ease-in-out_infinite]">

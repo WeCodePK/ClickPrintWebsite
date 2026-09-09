@@ -1,4 +1,4 @@
-import logo from '../assets/WhiteBgLogoHighQuality.png'
+import logo from '../assets/WhiteBgLogoOptimized.webp'
 
 interface FooterProps {
   onRegister: () => void

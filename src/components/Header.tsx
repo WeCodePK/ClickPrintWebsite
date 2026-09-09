@@ -1,5 +1,5 @@
 import { useState, type MouseEvent } from 'react'
-import logo from '../assets/WhiteBgLogoHighQuality.png'
+import logo from '../assets/WhiteBgLogoOptimized.webp'
 
 interface HeaderProps {
   isHome: boolean
@@ -28,7 +28,7 @@ export default function Header({ isHome, onHome, onRegister }: HeaderProps) {
     <header className="sticky top-0 z-50 bg-white backdrop-blur-[14px] border-b border-[rgba(228,233,242,.7)]">
       <div className="cp-in h-16 sm:h-18.5 flex items-center justify-between gap-3 sm:gap-5">
         <a onClick={onHome} className="flex items-center gap-2.75 cursor-pointer">
-          <img src={logo} alt="ClickPrint" className="h-12 sm:h-16 w-auto block" />
+          <img src={logo} alt="ClickPrint" className="h-12 sm:h-16 w-auto block" fetchPriority="high" decoding="async" />
         </a>
 
         {/* Desktop nav */}
