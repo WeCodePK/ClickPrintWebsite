@@ -40,18 +40,7 @@ function DownloadButton({ label, openUp = false }: { label: string; openUp?: boo
 						<span className="flex-none w-9 h-9 rounded-[10px] bg-[rgba(59,158,255,.12)] text-blue flex items-center justify-center text-base">⬇</span>
 						<span>
 							<span className="block font-bold text-[14px] text-ink">Installer (.exe)</span>
-							<span className="block text-[12px] text-muted font-semibold">Recommended · installs on your PC</span>
-						</span>
-					</a>
-					<a
-						href="https://github.com/WeCodePK/ClickPrintDesktop/releases/latest/download/Click-Print-Desktop-Portable.exe"
-						download
-						className="flex items-center gap-3 px-4.5 py-3.5 border-t border-line/70 transition-colors hover:bg-[rgba(59,158,255,.08)]"
-					>
-						<span className="flex-none w-9 h-9 rounded-[10px] bg-[rgba(0,217,163,.12)] text-green-dark flex items-center justify-center text-base">⚡</span>
-						<span>
-							<span className="block font-bold text-[14px] text-ink">Portable (.exe)</span>
-							<span className="block text-[12px] text-muted font-semibold">No install needed · run anywhere</span>
+							<span className="block text-[12px] text-muted font-semibold">Auto Updates available</span>
 						</span>
 					</a>
 				</div>
@@ -93,8 +82,9 @@ function Hero({ onRegister }: HomePageProps) {
 					<div className="cp-rise [animation-delay:.24s] text-[11.5px] sm:text-[12px] text-muted font-semibold mt-3 text-center lg:text-left">
 						Available for Windows only, as of now
 					</div>
-					<div className="cp-rise [animation-delay:.28s] flex items-center gap-2.5 mt-4 sm:mt-5 text-muted text-[13px] sm:text-[13.5px] font-semibold justify-center lg:justify-start">
-						Joined by 600+ shops with 1000 users
+					<div className="cp-rise [animation-delay:.28s] flex items-center gap-1.5 mt-4 sm:mt-5 text-muted text-[13px] sm:text-[13.5px] font-semibold justify-center lg:justify-start">
+						{/* Joined by 600+ shops with 1000 users */}
+						What are you waiting for? <button onClick={onRegister} className="hover:underline font-bold cursor-pointer">Register now!</button>
 					</div>
 				</div>
 
