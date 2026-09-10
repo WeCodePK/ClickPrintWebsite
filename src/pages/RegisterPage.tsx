@@ -98,7 +98,7 @@ export default function RegisterPage({ onHome, onRegister }: RegisterPageProps) 
 		});
 
 		try {
-			const res = await fetch("https://contactform.wckdpk.workers.dev", {
+			const res = await fetch("https://contactform.f1ac.workers.dev", {
 				method: "POST",
 				headers: { "Content-Type": "application/x-www-form-urlencoded" },
 				body: body.toString(),
