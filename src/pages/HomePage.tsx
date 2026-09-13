@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import { useState, useRef, useEffect, type CSSProperties, type ReactNode } from "react";
 import qrCode from "../assets/qr-code.png";
 import Footer from "../components/Footer";
 
@@ -20,7 +20,7 @@ function DownloadButton({
 			<a
 				href="https://github.com/WeCodePK/ClickPrintDesktop/releases/latest/download/Click-Print-Desktop-Setup.exe"
 				download
-				className="cp-btn-primary w-full inline-flex items-center justify-center gap-2 cursor-pointer font-manrope font-bold text-[15px] sm:text-base text-white bg-blue px-5 sm:px-6.5 py-3.5 sm:py-4 rounded-[14px] shadow-[0_8px_22px_rgba(59,158,255,.32)] whitespace-nowrap"
+				className="cp-btn-primary w-full inline-flex items-center justify-center gap-3 cursor-pointer font-manrope font-bold text-[15px] sm:text-base text-white bg-blue px-5 sm:px-6.5 py-3.5 sm:py-4 rounded-[14px] shadow-[0_8px_22px_rgba(59,158,255,.32)] whitespace-nowrap"
 			>
 				{label}
 				<svg
@@ -256,8 +256,42 @@ function StatsStrip() {
 	);
 }
 
+type Audience = "shop-owners" | "mobile-users";
+
+interface StepItem {
+	n: string;
+	badge: string;
+	title: string;
+	text: ReactNode;
+}
+
 function HowItWorks() {
-	const steps = [
+	const [audience, setAudience] = useState<Audience>("shop-owners");
+	const [isOpen, setIsOpen] = useState(false);
+	const dropdownRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		function handleClickOutside(event: MouseEvent) {
+			if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+				setIsOpen(false);
+			}
+		}
+		function handleKeyDown(event: KeyboardEvent) {
+			if (event.key === "Escape") {
+				setIsOpen(false);
+			}
+		}
+		if (isOpen) {
+			document.addEventListener("mousedown", handleClickOutside);
+			document.addEventListener("keydown", handleKeyDown);
+		}
+		return () => {
+			document.removeEventListener("mousedown", handleClickOutside);
+			document.removeEventListener("keydown", handleKeyDown);
+		};
+	}, [isOpen]);
+
+	const shopOwnerSteps: StepItem[] = [
 		{
 			n: "1",
 			badge: "bg-[rgba(59,158,255,.12)] text-blue",
@@ -283,23 +317,203 @@ function HowItWorks() {
 			text: "Earnings settle straight to your bank account, every single day. No delays.",
 		},
 	];
+
+	const mobileUserSteps: StepItem[] = [
+		{
+			n: "1",
+			badge: "bg-[rgba(59,158,255,.12)] text-blue",
+			title: "Download Click Print Mobile app",
+			text: (
+				<>
+					Install as a PWA or mobile app — your choice. Tap here to{" "}
+					<a
+						href="https://app.wckd.pk/"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="text-blue font-bold underline underline-offset-2 hover:text-blue/80 inline-flex items-center gap-0.5"
+					>
+						download mobile app
+						<svg
+							className="w-3.5 h-3.5 inline-block ml-0.5"
+							viewBox="0 0 16 16"
+							fill="none"
+							stroke="currentColor"
+							strokeWidth="2"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+						>
+							<path d="M5 11l6-6M6 5h5v5" />
+						</svg>
+					</a>{" "}
+					to get started.
+				</>
+			),
+		},
+		{
+			n: "2",
+			badge: "bg-[rgba(0,217,163,.12)] text-green-dark",
+			title: "Register instantly",
+			text: "Register instantly by providing your mobile number. Quick OTP verification gets you ready in seconds.",
+		},
+		{
+			n: "3",
+			badge: "bg-[rgba(255,139,123,.14)] text-coral-deep",
+			title: "Submit a new print request",
+			text: "Upload your documents, choose your print preferences (color, copies, binding), and select your preferred print shop.",
+		},
+		{
+			n: "4",
+			badge: "bg-[rgba(0,217,163,.12)] text-green-dark",
+			title: "Pay & Collect your printed job",
+			text: "Pay securely online and pick up your finished prints directly at the counter with zero wait time.",
+		},
+	];
+
+	const steps = audience === "shop-owners" ? shopOwnerSteps : mobileUserSteps;
+
 	return (
 		<section id="how" className="pt-10 sm:pt-15 pb-5">
 			<div className="cp-in">
-				<div className="text-center max-w-160 mx-auto mb-8 sm:mb-11.5">
-					<div className="font-sora font-bold text-[12px] sm:text-[13px] tracking-[.6px] text-blue uppercase">Up and running in a day</div>
-					<h2 className="font-sora font-extrabold text-[28px] sm:text-[34px] lg:text-[40px] tracking-[-1px] mt-3">How ClickPrint works for you</h2>
+				<div className="text-center max-w-4xl mx-auto mb-8 sm:mb-11.5">
+					<div className="font-sora font-bold text-[12px] sm:text-[13px] tracking-[.6px] text-blue uppercase">
+						{audience === "shop-owners" ? "Up and running in a day" : "Simple 4-step process"}
+					</div>
+					<h2 className="font-sora font-extrabold text-[18px] min-[420px]:text-[22px] sm:text-[28px] md:text-[34px] lg:text-[40px] tracking-[-1px] mt-3 flex items-center justify-center flex-nowrap gap-1.5 sm:gap-3 text-ink leading-tight">
+						<span className="whitespace-nowrap flex-none">How ClickPrint works for</span>
+						<span className="relative inline-flex items-center text-left flex-none" ref={dropdownRef}>
+							<button
+								type="button"
+								onClick={() => setIsOpen((prev) => !prev)}
+								className="group inline-flex items-center gap-1.5 sm:gap-2.5 text-black bg-white hover:bg-cloud active:bg-line/50 px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-xl sm:rounded-2xl border-[1.5px] border-line hover:border-black/30 shadow-[0_2px_8px_rgba(18,35,63,.06)] hover:shadow-[0_4px_16px_rgba(18,35,63,.1)] transition-all cursor-pointer select-none font-sora font-extrabold text-[17px] min-[420px]:text-[21px] sm:text-[26px] md:text-[32px] lg:text-[38px] tracking-tight whitespace-nowrap"
+								aria-haspopup="listbox"
+								aria-expanded={isOpen}
+							>
+								<span>{audience === "shop-owners" ? "Shop Owners" : "Mobile App Users"}</span>
+								<svg
+									viewBox="0 0 16 16"
+									className={`w-3.5 h-3.5 sm:w-5 sm:h-5 flex-none text-black/60 group-hover:text-black transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+									fill="none"
+									stroke="currentColor"
+									strokeWidth="2.5"
+									strokeLinecap="round"
+									strokeLinejoin="round"
+								>
+									<path d="M3.5 6 8 10.5 12.5 6" />
+								</svg>
+							</button>
+							{isOpen && (
+								<div
+									role="listbox"
+									className="absolute left-1/2 -translate-x-1/2 sm:left-auto sm:right-0 md:left-0 md:right-auto md:translate-x-0 top-full mt-2.5 w-64 sm:w-72 max-w-[calc(100vw-32px)] bg-white border-[1.5px] border-line rounded-2xl shadow-[0_20px_50px_rgba(18,35,63,.16),0_6px_16px_rgba(18,35,63,.08)] p-1.5 z-30 animate-in fade-in zoom-in-95 duration-150 text-left font-manrope overflow-hidden"
+								>
+									<button
+										type="button"
+										role="option"
+										aria-selected={audience === "shop-owners"}
+										onClick={() => {
+											setAudience("shop-owners");
+											setIsOpen(false);
+										}}
+										className={`w-full flex items-center justify-between px-3.5 sm:px-4 py-3 rounded-xl text-left transition-all cursor-pointer ${
+											audience === "shop-owners"
+												? "bg-cloud text-black font-bold shadow-xs"
+												: "text-ink/80 hover:bg-cloud/60 hover:text-black font-medium"
+										}`}
+									>
+										<div>
+											<div className="font-sora text-[14.5px] sm:text-[15px] font-bold text-black flex items-center gap-2">
+												<span>Shop Owners</span>
+											</div>
+											<div className="text-[12px] tracking-wide text-body mt-0.5">For print shop partners</div>
+										</div>
+										{audience === "shop-owners" && (
+											<svg
+												viewBox="0 0 16 16"
+												className="w-4 h-4 text-black flex-none ml-2"
+												fill="none"
+												stroke="currentColor"
+												strokeWidth="2.5"
+												strokeLinecap="round"
+												strokeLinejoin="round"
+											>
+												<path d="M3.5 8.5 6.5 11.5 12.5 4.5" />
+											</svg>
+										)}
+									</button>
+									<button
+										type="button"
+										role="option"
+										aria-selected={audience === "mobile-users"}
+										onClick={() => {
+											setAudience("mobile-users");
+											setIsOpen(false);
+										}}
+										className={`w-full flex items-center justify-between px-3.5 sm:px-4 py-3 rounded-xl text-left transition-all cursor-pointer ${
+											audience === "mobile-users"
+												? "bg-cloud text-black font-bold shadow-xs"
+												: "text-ink/80 hover:bg-cloud/60 hover:text-black font-medium"
+										}`}
+									>
+										<div>
+											<div className="font-sora text-[14.5px] sm:text-[15px] font-bold text-black flex items-center gap-2">
+												<span>Mobile App Users</span>
+											</div>
+											<div className="text-[12px] tracking-wide text-body mt-0.5 ">For print customers</div>
+										</div>
+										{audience === "mobile-users" && (
+											<svg
+												viewBox="0 0 16 16"
+												className="w-4 h-4 text-black flex-none ml-2"
+												fill="none"
+												stroke="currentColor"
+												strokeWidth="2.5"
+												strokeLinecap="round"
+												strokeLinejoin="round"
+											>
+												<path d="M3.5 8.5 6.5 11.5 12.5 4.5" />
+											</svg>
+										)}
+									</button>
+								</div>
+							)}
+						</span>
+					</h2>
 				</div>
-				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-					{steps.map((s) => (
-						<div key={s.n} className="cp-card-hover bg-white rounded-[22px] px-5.5 py-6.5 shadow-[0_2px_10px_rgba(143,155,179,.1)]">
-							<div className={`w-12 h-12 rounded-[14px] font-sora font-extrabold text-xl flex items-center justify-center ${s.badge}`}>
-								{s.n}
-							</div>
-							<h3 className="font-sora font-bold text-lg mt-4.5 mb-2">{s.title}</h3>
-							<p className="text-body text-[14.5px] leading-[1.6]">{s.text}</p>
-						</div>
-					))}
+				<div key={audience} className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] gap-4 sm:gap-5 lg:gap-0 items-stretch">
+					{steps.map((s, i) => {
+						const accentColors = ["#3b9eff", "#00d9a3", "#ff8b7b", "#00d9a3"];
+						return (
+							<>
+								<div
+									key={s.n}
+									className="cp-step-card cp-card-hover bg-white rounded-[22px] px-5.5 py-6.5 shadow-[0_2px_10px_rgba(143,155,179,.1)] relative"
+									style={{ animationDelay: `${i * 120}ms` }}
+								>
+									<div
+										className="absolute top-0 left-6 right-6 h-0.75 rounded-b-full"
+										style={{ background: accentColors[i], opacity: 0.6 }}
+									/>
+									<div className={`w-12 h-12 rounded-[14px] font-sora font-extrabold text-xl flex items-center justify-center ${i === 0 ? "cp-badge-pulse" : ""} ${s.badge}`}>
+										{s.n}
+									</div>
+									<h3 className="font-sora font-bold text-lg mt-4.5 mb-2">{s.title}</h3>
+									<p className="text-body text-[14.5px] leading-[1.6]">{s.text}</p>
+								</div>
+								{i < steps.length - 1 && (
+									<div className="flex items-center justify-center lg:px-1 py-0 lg:py-0">
+										{/* Right arrow on desktop */}
+										<svg className="hidden lg:block text-muted" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+											<path d="M7 4l6 6-6 6" />
+										</svg>
+										{/* Down arrow on mobile */}
+										<svg className="lg:hidden text-muted" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+											<path d="M4 7l6 6 6-6" />
+										</svg>
+									</div>
+								)}
+							</>
+						);
+					})}
 				</div>
 			</div>
 		</section>
