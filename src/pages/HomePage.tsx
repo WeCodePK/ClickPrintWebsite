@@ -6,13 +6,21 @@ interface HomePageProps {
 	onRegister: () => void;
 }
 
-function DownloadButton({ label, openUp = false }: { label: string; openUp?: boolean }) {
+function DownloadButton({
+	label,
+	openUp = false,
+	className = "",
+}: {
+	label: string;
+	openUp?: boolean;
+	className?: string;
+}) {
 	return (
-		<div className="relative group">
+		<div className={`relative group ${className}`}>
 			<a
 				href="https://github.com/WeCodePK/ClickPrintDesktop/releases/latest/download/Click-Print-Desktop-Setup.exe"
 				download
-				className="cp-btn-primary inline-flex items-center gap-2 cursor-pointer font-manrope font-bold text-[15px] sm:text-base text-white bg-blue px-5 sm:px-6.5 py-3.5 sm:py-4 rounded-[14px] shadow-[0_8px_22px_rgba(59,158,255,.32)]"
+				className="cp-btn-primary w-full inline-flex items-center justify-center gap-2 cursor-pointer font-manrope font-bold text-[15px] sm:text-base text-white bg-blue px-5 sm:px-6.5 py-3.5 sm:py-4 rounded-[14px] shadow-[0_8px_22px_rgba(59,158,255,.32)] whitespace-nowrap"
 			>
 				{label}
 				<svg
@@ -69,15 +77,15 @@ function Hero({ onRegister }: HomePageProps) {
 						ClickPrint streams thousands of pre-paid print jobs straight to your shop. You print, you earn - no new hardware, no chasing
 						customers.
 					</p>
-					<div className="cp-rise [animation-delay:.2s] relative z-40 flex flex-wrap gap-3 sm:gap-3.5 items-start justify-center lg:justify-start">
+					<div className="cp-rise [animation-delay:.2s] relative z-40 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-3.5 items-center lg:items-start justify-center lg:justify-start">
 						<button
 							onClick={onRegister}
-							className="cp-btn-primary border-none cursor-pointer font-manrope font-bold text-[15px] sm:text-base text-white bg-coral px-6 sm:px-7.5 py-3.5 sm:py-4 rounded-[14px] animate-[cpPulse_2.6s_ease-in-out_infinite]"
+							className="w-full max-w-87.5 sm:max-w-none sm:w-87.5 cp-btn-primary border-none cursor-pointer font-manrope font-bold text-[15px] sm:text-base text-white bg-coral px-6 sm:px-7.5 py-3.5 sm:py-4 rounded-[14px] animate-[cpPulse_2.6s_ease-in-out_infinite] whitespace-nowrap text-center"
 						>
 							Register your shop
 						</button>
 						{/* download dropdown */}
-						<DownloadButton label="Download ClickPrint Desktop App" />
+						<DownloadButton className="w-full max-w-87.5 sm:max-w-none sm:w-87.5" label="Download ClickPrint Desktop App" />
 					</div>
 					<div className="cp-rise [animation-delay:.24s] text-[11.5px] sm:text-[12px] text-muted font-semibold mt-3 text-center lg:text-left">
 						Available for Windows only, as of now
@@ -223,10 +231,10 @@ function Hero({ onRegister }: HomePageProps) {
 
 function StatsStrip() {
 	const stats = [
-		{ value: "38", label: "HEIs served", color: "text-white" },
-		{ value: "120K+", label: "Active users", color: "text-green" },
+		{ value: "100+", label: "Partner shops", color: "text-coral" },
+		{ value: "20K+", label: "Active users", color: "text-green" },
 		{ value: "2.4M", label: "Pages printed", color: "text-blue" },
-		{ value: "600+", label: "Partner shops", color: "text-coral" },
+		{ value: "12", label: "Institutions served", color: "text-white" },
 	];
 	return (
 		<section className="pt-3.5 pb-8 sm:pb-11">
