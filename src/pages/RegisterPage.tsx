@@ -5,6 +5,10 @@ import Footer from "../components/Footer";
 interface RegisterPageProps {
 	onHome: () => void;
 	onRegister: () => void;
+	onContact?: () => void;
+	onPrivacy?: () => void;
+	onTerms?: () => void;
+	onRefund?: () => void;
 }
 
 interface FormState {
@@ -21,7 +25,14 @@ const initialForm: FormState = {
 	address: "",
 };
 
-export default function RegisterPage({ onHome, onRegister }: RegisterPageProps) {
+export default function RegisterPage({
+	onHome,
+	onRegister,
+	onContact,
+	onPrivacy,
+	onTerms,
+	onRefund,
+}: RegisterPageProps) {
 	const [form, setForm] = useState<FormState>(initialForm);
 	const [submitted, setSubmitted] = useState(false);
 	const [submitting, setSubmitting] = useState(false);
@@ -233,7 +244,7 @@ export default function RegisterPage({ onHome, onRegister }: RegisterPageProps) 
 							</div>
 
 							{/* aside */}
-							<aside className="sticky flex flex-col gap-4.5 order-first md:order-last">
+							<aside className="sticky flex flex-col gap-4.5">
 								<div className="bg-navy rounded-[22px] p-5 sm:p-6.5 text-white shadow-[0_16px_40px_rgba(18,35,63,.2)]">
 									<div className="font-sora font-extrabold text-[17px] sm:text-[19px] mb-4 sm:mb-4.5">What happens next</div>
 									<div className="flex flex-col gap-3.5 sm:gap-4">
@@ -269,7 +280,13 @@ export default function RegisterPage({ onHome, onRegister }: RegisterPageProps) 
 				</div>
 			</div>
 			</main>
-			<Footer onRegister={onRegister} />
+			<Footer
+				onRegister={onRegister}
+				onContact={onContact}
+				onPrivacy={onPrivacy}
+				onTerms={onTerms}
+				onRefund={onRefund}
+			/>
 		</>
 	);
 }

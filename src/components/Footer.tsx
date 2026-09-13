@@ -2,9 +2,13 @@ import logo from '../assets/WhiteBgLogoOptimized.webp'
 
 interface FooterProps {
   onRegister: () => void
+  onContact?: () => void
+  onPrivacy?: () => void
+  onTerms?: () => void
+  onRefund?: () => void
 }
 
-export default function Footer({ onRegister }: FooterProps) {
+export default function Footer({ onRegister, onContact, onPrivacy, onTerms, onRefund }: FooterProps) {
   return (
     <footer className="bg-navy text-white pt-12 sm:pt-15 pb-8 mt-5">
       <div className="cp-in">
@@ -42,17 +46,33 @@ export default function Footer({ onRegister }: FooterProps) {
             <div className="font-sora font-bold text-[13px] text-white/50 uppercase tracking-[.5px] mb-4">Get in touch</div>
             <div className="flex flex-col gap-3 text-[14.5px] text-white/75">
               <a href="https://wa.me/923235400291" target='_blank'>WhatsApp: +92 323 5400291</a>
-              <a href="mailto:support@wecode.com.pk" target='_blank'>support@wecode.com.pk</a>
-              <a href="https://wecode.com.pk/contact" target='_blank'>Contact Us</a>
+              <a href="mailto:clickprintsupport@gmail.com" target='_blank'>clickprintsupport@gmail.com</a>
+              {onContact ? (
+                <a onClick={onContact} className="cursor-pointer hover:text-white transition-colors">Contact Us</a>
+              ) : (
+                <a href="https://wecode.com.pk/contact" target='_blank'>Contact Us</a>
+              )}
             </div>
           </div>
         </div>
         <div className="flex flex-col sm:flex-row justify-between items-center flex-wrap gap-3 pt-6 text-[13px] text-white/50">
           <div>© 2026 ClickPrint. A product of <a href="https://wecode.com.pk/" target="_blank" className="text-white/70 hover:text-white/80 transition-colors duration-200 cursor-pointer">WeCode</a>.</div>
           <div className="flex gap-5.5">
-            <a href="https://wecode.com.pk/privacy" target='_blank'>Privacy</a>
-            <a href="https://wecode.com.pk/terms" target='_blank'>Terms</a>
-            <a href="https://wecode.com.pk/refund" target='_blank'>Refund</a>
+            {onPrivacy ? (
+              <a onClick={onPrivacy} className="cursor-pointer hover:text-white transition-colors">Privacy</a>
+            ) : (
+              <a href="https://wecode.com.pk/privacy" target='_blank'>Privacy</a>
+            )}
+            {onTerms ? (
+              <a onClick={onTerms} className="cursor-pointer hover:text-white transition-colors">Terms</a>
+            ) : (
+              <a href="https://wecode.com.pk/terms" target='_blank'>Terms</a>
+            )}
+            {onRefund ? (
+              <a onClick={onRefund} className="cursor-pointer hover:text-white transition-colors">Refund</a>
+            ) : (
+              <a href="https://wecode.com.pk/refund" target='_blank'>Refund</a>
+            )}
           </div>
         </div>
       </div>

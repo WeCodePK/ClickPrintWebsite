@@ -4,6 +4,10 @@ import Footer from "../components/Footer";
 
 interface HomePageProps {
 	onRegister: () => void;
+	onContact?: () => void;
+	onPrivacy?: () => void;
+	onTerms?: () => void;
+	onRefund?: () => void;
 }
 
 function DownloadButton({
@@ -59,14 +63,14 @@ function DownloadButton({
 
 function Hero({ onRegister }: HomePageProps) {
 	return (
-		<section className="cp-hero relative z-30 overflow-hidden flex items-center min-h-[calc(100svh-64px)] sm:min-h-[calc(100svh-74px)]">
+		<section className="cp-hero relative z-30 overflow-hidden flex items-center min-h-[calc(100svh-98px)] sm:min-h-[calc(100svh-112px)]">
 			<div
 				className="absolute inset-0"
 				style={{
 					background: "radial-gradient(1000px 520px at 82% -8%, rgba(59,158,255,.10), transparent 60%),radial-gradient(760px 480px at 6% 12%, rgba(0,217,163,.09), transparent 62%)",
 				}}
 			/>
-			<div className="cp-hero-in cp-in relative grid grid-cols-1 lg:grid-cols-[1.02fr_.98fr] gap-8 lg:gap-10 items-center py-10 sm:py-14">
+			<div className="cp-hero-in cp-in relative grid grid-cols-1 lg:grid-cols-[1.02fr_.98fr] gap-8 lg:gap-10 items-center py-8 sm:py-10 lg:py-12">
 				{/* copy */}
 				<div className="text-center lg:text-left">
 					<h1 className="cp-rise [animation-delay:.08s] font-sora font-extrabold text-[32px] sm:text-[42px] lg:text-[56px] leading-[1.08] lg:leading-[1.04] tracking-[-1px] lg:tracking-[-1.5px] mb-4 sm:mb-5">
@@ -767,7 +771,13 @@ function FinalCta({ onRegister }: HomePageProps) {
 	);
 }
 
-export default function HomePage({ onRegister }: HomePageProps) {
+export default function HomePage({
+	onRegister,
+	onContact,
+	onPrivacy,
+	onTerms,
+	onRefund,
+}: HomePageProps) {
 	return (
 		<main>
 			<Hero onRegister={onRegister} />
@@ -778,7 +788,13 @@ export default function HomePage({ onRegister }: HomePageProps) {
 			<Testimonials />
 			<Faq />
 			<FinalCta onRegister={onRegister} />
-			<Footer onRegister={onRegister} />
+			<Footer
+				onRegister={onRegister}
+				onContact={onContact}
+				onPrivacy={onPrivacy}
+				onTerms={onTerms}
+				onRefund={onRefund}
+			/>
 		</main>
 	);
 }
