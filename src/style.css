@@ -371,7 +371,8 @@ textarea.cp-inp::placeholder {
 
 /* Subtle glow pulse on step 1 badge */
 @keyframes cpBadgePulse {
-	0%, 100% {
+	0%,
+	100% {
 		box-shadow: 0 0 0 0 rgba(59, 158, 255, 0.25);
 	}
 	50% {

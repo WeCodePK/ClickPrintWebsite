@@ -44,30 +44,30 @@ export default function RegisterPage({
 		setError("");
 	};
 
-	const validateOwnerName = (name: string)=> {
-		name.trim();
-		if(name.length <= 3 || !name.match("^[A-Za-z ]+$")) return false;
+	const validateOwnerName = (name: string) => {
+		const trimmed = name.trim();
+		if (trimmed.length <= 3 || !trimmed.match("^[A-Za-z ]+$")) return false;
 		return true;
-	}
+	};
 	
-	const validateShopName = (name: string)=> {
-		name.trim();
-		if(name.length <= 3 || !name.match("^[A-Za-z0-9 ]+$")) return false;
+	const validateShopName = (name: string) => {
+		const trimmed = name.trim();
+		if (trimmed.length <= 3 || !trimmed.match("^[A-Za-z0-9 ]+$")) return false;
 		return true;
-	}
+	};
 
-	const validateAddress = (address : string) => {
-		address.trim();
-		if(address.length < 10) return false;
+	const validateAddress = (address: string) => {
+		const trimmed = address.trim();
+		if (trimmed.length < 10) return false;
 		return true;
-	}
+	};
 
-	const validateWhatsapp = (whatsapp : string) => {
-		whatsapp.trim();
-		if(whatsapp.length === 11 && whatsapp.match('^03[0-9]{9}$')) return true;
-		if(whatsapp.length === 12 && whatsapp.match('^923[0-9]{9}$')) return true;
+	const validateWhatsapp = (whatsapp: string) => {
+		const trimmed = whatsapp.trim();
+		if (trimmed.length === 11 && trimmed.match("^03[0-9]{9}$")) return true;
+		if (trimmed.length === 12 && trimmed.match("^923[0-9]{9}$")) return true;
 		return false;
-	}
+	};
 
 	const submit = async () => {
 		const missing: string[] = [];
@@ -100,26 +100,35 @@ export default function RegisterPage({
 		setSubmitting(true);
 		setError("");
 
-		const body = new URLSearchParams({
-			form: "ClickPrint Registration Form",
-			ownerName: form.ownerName.trim(),
-			shopName: form.shopName.trim(),
-			whatsapp: form.whatsapp.trim(),
-			address: form.address.trim(),
-		});
-
 		try {
-			const res = await fetch("https://contactform.f1ac.workers.dev", {
+			const res = await fetch("https://api.clickprint.pk/api/contact/register", {
 				method: "POST",
-				headers: { "Content-Type": "application/x-www-form-urlencoded" },
-				body: body.toString(),
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					name: form.ownerName.trim(),
+					number: form.whatsapp.trim(),
+					shopName: form.shopName.trim(),
+					shopAddress: form.address.trim(),
+				}),
 			});
-			if (!res.ok) throw new Error("Request failed");
+
+			if (!res.ok) {
+				const data = await res.json().catch(() => null);
+				throw new Error(data?.message || data?.error || "");
+			}
+
 			setSubmitted(true);
 			setError("");
 			window.scrollTo({ top: 0, behavior: "auto" });
-		} catch {
-			setError("Something went wrong submitting your registration. Please try again.");
+		} catch (err: unknown) {
+			const message = err instanceof Error ? err.message : "";
+			setError(
+				message && message !== "Failed to fetch"
+					? message
+					: "Something went wrong submitting your registration. Please try again."
+			);
 		} finally {
 			setSubmitting(false);
 		}

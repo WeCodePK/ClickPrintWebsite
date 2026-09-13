@@ -101,26 +101,35 @@ export default function ContactPage({
 		setSubmitting(true);
 		setError("");
 
-		const body = new URLSearchParams({
-			form: "ClickPrint Contact Form",
-			name: form.name.trim(),
-			email: form.email.trim(),
-			whatsapp: form.whatsapp.trim(),
-			message: form.message.trim(),
-		});
-
 		try {
-			const res = await fetch("https://contactform.f1ac.workers.dev", {
+			const res = await fetch("https://api.clickprint.pk/api/contact/form", {
 				method: "POST",
-				headers: { "Content-Type": "application/x-www-form-urlencoded" },
-				body: body.toString(),
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					name: form.name.trim(),
+					email: form.email.trim(),
+					number: form.whatsapp.trim(),
+					message: form.message.trim(),
+				}),
 			});
-			if (!res.ok) throw new Error("Request failed");
+
+			if (!res.ok) {
+				const data = await res.json().catch(() => null);
+				throw new Error(data?.message || data?.error || "");
+			}
+
 			setSubmitted(true);
 			setError("");
 			window.scrollTo({ top: 0, behavior: "auto" });
-		} catch {
-			setError("Something went wrong submitting your message. Please try again.");
+		} catch (err: unknown) {
+			const message = err instanceof Error ? err.message : "";
+			setError(
+				message && message !== "Failed to fetch"
+					? message
+					: "Something went wrong submitting your message. Please try again."
+			);
 		} finally {
 			setSubmitting(false);
 		}
