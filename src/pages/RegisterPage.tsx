@@ -14,6 +14,7 @@ interface RegisterPageProps {
 interface FormState {
 	ownerName: string;
 	shopName: string;
+	email: string;
 	whatsapp: string;
 	address: string;
 }
@@ -21,6 +22,7 @@ interface FormState {
 const initialForm: FormState = {
 	ownerName: "",
 	shopName: "",
+	email: "",
 	whatsapp: "",
 	address: "",
 };
@@ -56,6 +58,12 @@ export default function RegisterPage({
 		return true;
 	};
 
+	const validateEmail = (email: string) => {
+		const trimmed = email.trim();
+		if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) return false;
+		return true;
+	};
+
 	const validateAddress = (address: string) => {
 		const trimmed = address.trim();
 		if (trimmed.length < 10) return false;
@@ -72,8 +80,9 @@ export default function RegisterPage({
 	const submit = async () => {
 		const missing: string[] = [];
 		if (!form.ownerName.trim()) missing.push("owner name");
-		if (!form.whatsapp.trim()) missing.push("WhatsApp number");
 		if (!form.shopName.trim()) missing.push("shop name");
+		if (!form.email.trim()) missing.push("email address");
+		if (!form.whatsapp.trim()) missing.push("WhatsApp number");
 		if (!form.address.trim()) missing.push("address");
 		if (missing.length) {
 			setError("Please fill in: " + missing.join(", ") + ".");
@@ -86,6 +95,10 @@ export default function RegisterPage({
 		}
 		if (!validateShopName(form.shopName)) {
 			setError("Shop name - Only letters, numbers & spaces and must be at least 4 characters long.");
+			return;
+		}
+		if (!validateEmail(form.email)) {
+			setError("Email - Please enter a valid email address.");
 			return;
 		}
 		if (!validateWhatsapp(form.whatsapp)) {
@@ -108,6 +121,7 @@ export default function RegisterPage({
 				},
 				body: JSON.stringify({
 					name: form.ownerName.trim(),
+					email: form.email.trim().toLowerCase(),
 					number: form.whatsapp.trim(),
 					shopName: form.shopName.trim(),
 					shopAddress: form.address.trim(),
@@ -204,6 +218,16 @@ export default function RegisterPage({
 											placeholder="e.g. Jani Print Shop"
 											value={form.shopName}
 											onChange={setF("shopName")}
+										/>
+									</div>
+									<div className="sm:col-span-2">
+										<label className={label}>Email address {required}</label>
+										<input
+											className="cp-inp"
+											type="email"
+											placeholder="e.g. adeel@example.com"
+											value={form.email}
+											onChange={setF("email")}
 										/>
 									</div>
 									<div className="sm:col-span-2">
