@@ -22,7 +22,7 @@ function DownloadButton({
 	return (
 		<div className={`relative group ${className}`}>
 			<a
-				href="https://github.com/WeCodePK/ClickPrintDesktop/releases/latest/download/Click-Print-Desktop-Setup.exe"
+				href="https://github.com/WeCodePK/ClickPrintDesktop/releases/latest/download/ClickPrintDesktop-Setup.exe"
 				download
 				className="cp-btn-primary w-full inline-flex items-center justify-center gap-3 cursor-pointer font-manrope font-bold text-[15px] sm:text-base text-white bg-blue px-5 sm:px-6.5 py-3.5 sm:py-4 rounded-[14px] shadow-[0_8px_22px_rgba(59,158,255,.32)] whitespace-nowrap"
 			>
