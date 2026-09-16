@@ -51,7 +51,7 @@ function DownloadButton({
 					>
 						<span className="flex-none w-9 h-9 rounded-[10px] bg-[rgba(59,158,255,.12)] text-blue flex items-center justify-center text-base">⬇</span>
 						<span>
-							<span className="block font-bold text-[14px] text-ink">Installer (.exe)</span>
+							<span className="block font-bold text-[14px] text-ink">Installer (exe)</span>
 							<span className="block text-[12px] text-muted font-semibold">Auto Updates available</span>
 						</span>
 					</a>
