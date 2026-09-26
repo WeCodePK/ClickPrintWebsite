@@ -45,7 +45,7 @@ function DownloadButton({
 			>
 				<div className="bg-white border-[1.5px] border-line rounded-[14px] shadow-[0_16px_40px_rgba(18,35,63,.14)] overflow-hidden text-left">
 					<a
-						href="https://github.com/WeCodePK/ClickPrintDesktop/releases/latest/download/Click-Print-Desktop-Setup.exe"
+						href="https://github.com/WeCodePK/ClickPrintDesktop/releases/latest/download/ClickPrintDesktop-Setup.exe"
 						download
 						className="flex items-center gap-3 px-4.5 py-3.5 transition-colors hover:bg-[rgba(59,158,255,.08)]"
 					>
