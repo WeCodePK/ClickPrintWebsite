@@ -1,4 +1,5 @@
 import logo from '../assets/WhiteBgLogoOptimized.webp'
+import { MOBILE_APP_URL } from '../links'
 
 interface FooterProps {
   onRegister: () => void
@@ -25,14 +26,35 @@ export default function Footer({ onRegister, onContact, onPrivacy, onTerms, onRe
               <a className="w-9.5 h-9.5 cursor-not-allowed rounded-[11px] bg-white/10 flex items-center justify-center text-[15px] font-bold">𝕏</a>
               <a className="w-9.5 h-9.5 cursor-not-allowed rounded-[11px] bg-white/10 flex items-center justify-center text-[15px] font-bold">f</a>
             </div>
+            <a
+              href={MOBILE_APP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mt-6 inline-flex items-center gap-3 rounded-[14px] bg-white/8 hover:bg-white/14 border border-white/15 pl-2.5 pr-4 py-2.5 transition-colors"
+            >
+              <span className="flex-none w-9.5 h-9.5 rounded-[11px] bg-blue flex items-center justify-center">
+                <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="6" y="2.5" width="12" height="19" rx="2.8" />
+                  <path d="M10.5 18h3" />
+                </svg>
+              </span>
+              <span>
+                <span className="block text-[11px] text-white/55 font-semibold leading-tight">Get the</span>
+                <span className="block font-sora font-bold text-[14.5px] leading-tight mt-0.5">ClickPrint Mobile App</span>
+              </span>
+              <svg viewBox="0 0 16 16" className="w-3.5 h-3.5 ml-1 text-white/60 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M5 11l6-6M6 5h5v5" />
+              </svg>
+            </a>
           </div>
           <div>
-            <div className="font-sora font-bold text-[13px] text-white/50 uppercase tracking-[.5px] mb-4">For shops</div>
+            <div className="font-sora font-bold text-[13px] text-white/50 uppercase tracking-[.5px] mb-4">Get started</div>
             <div className="flex flex-col gap-3 text-[14.5px] text-white/75">
               <a onClick={onRegister} className="cursor-pointer">Register your shop</a>
               <a href="#how">How it works</a>
               <a href="#why">Why partner</a>
-              <a href="#download">Get the app</a>
+              <a href="#download">Desktop app</a>
+              <a href={MOBILE_APP_URL} target="_blank" rel="noopener noreferrer">Mobile app</a>
             </div>
           </div>
           <div>

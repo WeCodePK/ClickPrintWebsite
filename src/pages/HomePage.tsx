@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, type CSSProperties, type ReactNode } from "react";
 import qrCode from "../assets/qr-code.png";
 import Footer from "../components/Footer";
+import { DESKTOP_APP_URL, MOBILE_APP_URL } from "../links";
 
 interface HomePageProps {
 	onRegister: () => void;
@@ -10,22 +11,73 @@ interface HomePageProps {
 	onRefund?: () => void;
 }
 
+function WindowsIcon({ className = "" }: { className?: string }) {
+	return (
+		<svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+			<path d="M3 5.6 10.4 4.6v6.9H3zM11.4 4.4 21 3v8.5h-9.6zM3 12.5h7.4v6.9L3 18.4zM11.4 12.5H21V21l-9.6-1.4z" />
+		</svg>
+	);
+}
+
+function PhoneIcon({ className = "" }: { className?: string }) {
+	return (
+		<svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+			<rect x="6" y="2.5" width="12" height="19" rx="2.8" />
+			<path d="M10.5 18h3" />
+		</svg>
+	);
+}
+
+function ExternalIcon({ className = "" }: { className?: string }) {
+	return (
+		<svg viewBox="0 0 16 16" className={className} fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+			<path d="M5 11l6-6M6 5h5v5" />
+		</svg>
+	);
+}
+
+function MobileAppButton({
+	label,
+	compact = false,
+	className = "",
+}: {
+	label: string;
+	compact?: boolean;
+	className?: string;
+}) {
+	return (
+		<a
+			href={MOBILE_APP_URL}
+			target="_blank"
+			rel="noopener noreferrer"
+			className={`group cp-btn-primary inline-flex items-center justify-center cursor-pointer font-manrope font-bold text-white bg-navy rounded-[14px] shadow-[0_8px_22px_rgba(18,35,63,.26)] whitespace-nowrap ${compact ? "gap-2 px-4 py-3.5 sm:py-4 text-[14.5px] sm:text-[15px]" : "gap-3 px-5 sm:px-6.5 py-3.5 sm:py-4 text-[15px] sm:text-base"} ${className}`}
+		>
+			<PhoneIcon className="w-4.5 h-4.5 flex-none" />
+			{label}
+			<ExternalIcon className="w-3.5 h-3.5 flex-none opacity-70 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+		</a>
+	);
+}
+
 function DownloadButton({
 	label,
 	openUp = false,
+	compact = false,
 	className = "",
 }: {
 	label: string;
 	openUp?: boolean;
+	compact?: boolean;
 	className?: string;
 }) {
 	return (
 		<div className={`relative group ${className}`}>
 			<a
-				href="https://github.com/WeCodePK/ClickPrintDesktop/releases/latest/download/ClickPrintDesktop-Setup.exe"
+				href={DESKTOP_APP_URL}
 				download
-				className="cp-btn-primary w-full inline-flex items-center justify-center gap-3 cursor-pointer font-manrope font-bold text-[15px] sm:text-base text-white bg-blue px-5 sm:px-6.5 py-3.5 sm:py-4 rounded-[14px] shadow-[0_8px_22px_rgba(59,158,255,.32)] whitespace-nowrap"
+				className={`cp-btn-primary w-full inline-flex items-center justify-center cursor-pointer font-manrope font-bold text-white bg-blue rounded-[14px] shadow-[0_8px_22px_rgba(59,158,255,.32)] whitespace-nowrap ${compact ? "gap-2 px-4 py-3.5 sm:py-4 text-[14.5px] sm:text-[15px]" : "gap-3 px-5 sm:px-6.5 py-3.5 sm:py-4 text-[15px] sm:text-base"}`}
 			>
+				<WindowsIcon className="w-4 h-4 flex-none" />
 				{label}
 				<svg
 					viewBox="0 0 16 16"
@@ -45,7 +97,7 @@ function DownloadButton({
 			>
 				<div className="bg-white border-[1.5px] border-line rounded-[14px] shadow-[0_16px_40px_rgba(18,35,63,.14)] overflow-hidden text-left">
 					<a
-						href="https://github.com/WeCodePK/ClickPrintDesktop/releases/latest/download/ClickPrintDesktop-Setup.exe"
+						href={DESKTOP_APP_URL}
 						download
 						className="flex items-center gap-3 px-4.5 py-3.5 transition-colors hover:bg-[rgba(59,158,255,.08)]"
 					>
@@ -81,18 +133,21 @@ function Hero({ onRegister }: HomePageProps) {
 						ClickPrint streams thousands of pre-paid print jobs straight to your shop. You print, you earn - no new hardware, no chasing
 						customers.
 					</p>
-					<div className="cp-rise [animation-delay:.2s] relative z-40 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-3.5 items-center lg:items-start justify-center lg:justify-start">
+					<div className="cp-rise [animation-delay:.2s] relative z-40 w-full max-w-95 mx-auto lg:mx-0 flex flex-col gap-3">
 						<button
 							onClick={onRegister}
-							className="w-full max-w-87.5 sm:max-w-none sm:w-87.5 cp-btn-primary border-none cursor-pointer font-manrope font-bold text-[15px] sm:text-base text-white bg-coral px-6 sm:px-7.5 py-3.5 sm:py-4 rounded-[14px] animate-[cpPulse_2.6s_ease-in-out_infinite] whitespace-nowrap text-center"
+							className="w-full cp-btn-primary border-none cursor-pointer font-manrope font-bold text-[15px] sm:text-base text-white bg-coral px-6 sm:px-7.5 py-3.5 sm:py-4 rounded-[14px] animate-[cpPulse_2.6s_ease-in-out_infinite] whitespace-nowrap text-center"
 						>
 							Register your shop
 						</button>
-						{/* download dropdown */}
-						<DownloadButton className="w-full max-w-87.5 sm:max-w-none sm:w-87.5" label="Download ClickPrint Desktop App" />
+						{/* app downloads */}
+						<div className="grid grid-cols-1 min-[400px]:grid-cols-2 gap-3">
+							<DownloadButton compact label="Desktop App" />
+							<MobileAppButton compact label="Mobile App" />
+						</div>
 					</div>
 					<div className="cp-rise [animation-delay:.24s] text-[11.5px] sm:text-[12px] text-muted font-semibold mt-3 text-center lg:text-left">
-						Available for Windows only, as of now
+						Desktop app for Windows only, as of now
 					</div>
 					<div className="cp-rise [animation-delay:.28s] flex items-center gap-1.5 mt-4 sm:mt-5 text-muted text-[13px] sm:text-[13.5px] font-semibold justify-center lg:justify-start">
 						{/* Joined by 600+ shops with 1000 users */}
@@ -331,7 +386,7 @@ function HowItWorks() {
 				<>
 					Install as a PWA or mobile app — your choice. Tap here to{" "}
 					<a
-						href="https://app.wckd.pk/"
+						href={MOBILE_APP_URL}
 						target="_blank"
 						rel="noopener noreferrer"
 						className="text-blue font-bold underline underline-offset-2 hover:text-blue/80 inline-flex items-center gap-0.5"
@@ -564,76 +619,142 @@ function DownloadApp() {
 	return (
 		<section id="download" className="pt-12 sm:pt-18 pb-5 scroll-mt-10">
 			<div className="cp-in">
-				<div className="bg-linear-to-br from-[#1b3a6b] to-navy rounded-[22px] sm:rounded-[30px] p-7 sm:p-10 lg:p-13 grid grid-cols-1 md:grid-cols-[1.2fr_.8fr] gap-8 sm:gap-11 items-center relative overflow-hidden shadow-[0_30px_70px_rgba(18,35,63,.28)]">
-					<div
-						className="absolute -left-15 -bottom-20 w-70 h-70 rounded-full"
-						style={{ background: "radial-gradient(circle,rgba(24,184,201,.22),transparent 70%)" }}
-					/>
-					<div className="relative text-center md:text-left">
-						<div className="font-sora font-bold text-[12px] sm:text-[13px] tracking-[.6px] text-[#18b8c9] uppercase">The ClickPrint Desktop app</div>
-						<h2 className="font-sora font-extrabold text-[26px] sm:text-[32px] lg:text-[38px] tracking-[-1px] text-white mt-3 mb-3 sm:mb-3.5 leading-[1.1] sm:leading-[1.08]">
-							Manage every job from your desktop.
-						</h2>
-						<p className="text-white/72 text-[14.5px] sm:text-base leading-[1.62] max-w-110 mx-auto md:mx-0 mb-6 sm:mb-7">
-							Accept orders, track your print queue, toggle your shop online, and watch your earnings grow — all from one app.
-							Click below to get started.
-						</p>
-						<div className="flex flex-wrap gap-3.5 justify-center md:justify-start">
-							<DownloadButton label="Download Now" openUp />
+				<div className="text-center max-w-160 mx-auto mb-8 sm:mb-11.5">
+					<div className="font-sora font-bold text-[12px] sm:text-[13px] tracking-[.6px] text-blue uppercase">Get the apps</div>
+					<h2 className="font-sora font-extrabold text-[28px] sm:text-[34px] lg:text-[40px] tracking-[-1px] mt-3">ClickPrint, on every screen.</h2>
+					<p className="text-body text-[14.5px] sm:text-base leading-[1.62] mt-3">
+						Shops run their print queue from the desktop. Customers send jobs from their phone.
+					</p>
+				</div>
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-5.5">
+					{/* desktop app card */}
+					<div className="cp-card-hover bg-linear-to-br from-[#1b3a6b] to-navy rounded-[22px] sm:rounded-[30px] px-6 sm:px-9 pt-7 sm:pt-9 flex flex-col relative overflow-hidden shadow-[0_30px_70px_rgba(18,35,63,.28)]">
+						<div
+							className="absolute -left-15 -bottom-20 w-70 h-70 rounded-full pointer-events-none"
+							style={{ background: "radial-gradient(circle,rgba(24,184,201,.22),transparent 70%)" }}
+						/>
+						<div className="relative z-10 text-center md:text-left">
+							<div className="font-sora font-bold text-[12px] sm:text-[13px] tracking-[.6px] text-[#18b8c9] uppercase">For shop owners</div>
+							<h3 className="font-sora font-extrabold text-[24px] sm:text-[28px] tracking-[-.8px] text-white mt-2.5 mb-2.5 leading-[1.12]">
+								ClickPrint Desktop
+							</h3>
+							<p className="text-white/72 text-[14.5px] sm:text-[15px] leading-[1.62] max-w-100 mx-auto md:mx-0 mb-6">
+								Accept orders, track your print queue, toggle your shop online, and watch your earnings grow — all from one app.
+							</p>
+							<div className="flex justify-center md:justify-start">
+								<DownloadButton label="Download for Windows" openUp />
+							</div>
+							<div className="text-[11.5px] sm:text-[12px] text-white/55 font-semibold mt-3">Available for Windows only, as of now</div>
 						</div>
-						<div className="text-[11.5px] sm:text-[12px] text-white/55 font-semibold mt-3">
-							Available for Windows only, as of now
-						</div>
-					</div>
-					{/* desktop app mockup */}
-					<div className="relative flex justify-center">
-						<div className="w-full max-w-85">
-							{/* monitor */}
-							<div className="bg-white/10 border border-white/15 rounded-2xl sm:rounded-[20px] p-2 sm:p-2.5 shadow-[0_24px_50px_rgba(0,0,0,.3)]">
-								<div className="bg-navy-deep rounded-[10px] sm:rounded-[14px] overflow-hidden">
-									{/* title bar */}
-									<div className="flex items-center gap-1.5 px-3.5 py-2.5 border-b border-white/10">
-										<span className="w-2.5 h-2.5 rounded-full bg-coral" />
-										<span className="w-2.5 h-2.5 rounded-full bg-[#f5c644]" />
-										<span className="w-2.5 h-2.5 rounded-full bg-green" />
-										<span className="ml-auto font-sora font-bold text-[9.5px] text-white/50 tracking-[.5px]">CLICKPRINT DESKTOP</span>
-									</div>
-									{/* queue */}
-									<div className="p-3.5 sm:p-4">
-										<div className="flex items-center justify-between mb-3">
-											<div className="font-sora font-bold text-[12.5px] sm:text-[13.5px] text-white">Print queue</div>
-											<div className="flex items-center gap-1.5 text-[10px] font-bold text-green">
-												<span className="w-1.75 h-1.75 rounded-full bg-green animate-[cpTap_1.8s_ease-in-out_infinite]" />
-												Online
-											</div>
+						{/* desktop mockup, cropped by the card edge */}
+						<div className="relative mt-auto pt-9 h-58 sm:h-62">
+							<div className="absolute left-1/2 -translate-x-1/2 top-9 w-[88%] max-w-85">
+								<div className="bg-white/10 border border-white/15 rounded-2xl sm:rounded-[20px] p-2 sm:p-2.5 shadow-[0_24px_50px_rgba(0,0,0,.3)]">
+									<div className="bg-navy-deep rounded-[10px] sm:rounded-[14px] overflow-hidden">
+										{/* title bar */}
+										<div className="flex items-center gap-1.5 px-3.5 py-2.5 border-b border-white/10">
+											<span className="w-2.5 h-2.5 rounded-full bg-coral" />
+											<span className="w-2.5 h-2.5 rounded-full bg-[#f5c644]" />
+											<span className="w-2.5 h-2.5 rounded-full bg-green" />
+											<span className="ml-auto font-sora font-bold text-[9.5px] text-white/50 tracking-[.5px]">CLICKPRINT DESKTOP</span>
 										</div>
-										{[
-											{ name: "Thesis.pdf", meta: "24 pages · Color", status: "printing" },
-											{ name: "Slides_final.pdf", meta: "48 pages · B&W", status: "ready" },
-											{ name: "Lab_report.docx", meta: "12 pages · B&W", status: "ready" },
-										].map((job) => (
-											<div key={job.name} className="flex items-center gap-2.5 bg-white/8 rounded-[10px] px-3 py-2.5 mb-2 last:mb-0">
-												<span className="flex-none w-6.5 h-8 rounded-[5px] bg-linear-to-br from-blue to-[#2A8AEF]" />
-												<span className="flex-1 min-w-0">
-													<span className="block text-[11px] sm:text-[11.5px] font-bold text-white truncate">{job.name}</span>
-													<span className="block text-[9.5px] text-white/50 font-semibold">{job.meta}</span>
-												</span>
-												{job.status === "printing" ? (
-													<span className="flex-none flex items-center gap-1.5 text-[9.5px] font-bold text-white/70">
-														<span className="w-3 h-3 border-2 border-white/30 border-t-green rounded-full animate-[cpSpin_1s_linear_infinite]" />
-														Printing
-													</span>
-												) : (
-													<span className="flex-none text-[9.5px] font-bold text-green bg-green/15 rounded-full px-2 py-1">Ready</span>
-												)}
+										{/* queue */}
+										<div className="p-3.5 sm:p-4">
+											<div className="flex items-center justify-between mb-3">
+												<div className="font-sora font-bold text-[12.5px] sm:text-[13.5px] text-white">Print queue</div>
+												<div className="flex items-center gap-1.5 text-[10px] font-bold text-green">
+													<span className="w-1.75 h-1.75 rounded-full bg-green animate-[cpTap_1.8s_ease-in-out_infinite]" />
+													Online
+												</div>
 											</div>
-										))}
+											{[
+												{ name: "Thesis.pdf", meta: "24 pages · Color", status: "printing" },
+												{ name: "Slides_final.pdf", meta: "48 pages · B&W", status: "ready" },
+												{ name: "Lab_report.docx", meta: "12 pages · B&W", status: "ready" },
+											].map((job) => (
+												<div key={job.name} className="flex items-center gap-2.5 bg-white/8 rounded-[10px] px-3 py-2.5 mb-2 last:mb-0">
+													<span className="flex-none w-6.5 h-8 rounded-[5px] bg-linear-to-br from-blue to-[#2A8AEF]" />
+													<span className="flex-1 min-w-0">
+														<span className="block text-[11px] sm:text-[11.5px] font-bold text-white truncate">{job.name}</span>
+														<span className="block text-[9.5px] text-white/50 font-semibold">{job.meta}</span>
+													</span>
+													{job.status === "printing" ? (
+														<span className="flex-none flex items-center gap-1.5 text-[9.5px] font-bold text-white/70">
+															<span className="w-3 h-3 border-2 border-white/30 border-t-green rounded-full animate-[cpSpin_1s_linear_infinite]" />
+															Printing
+														</span>
+													) : (
+														<span className="flex-none text-[9.5px] font-bold text-green bg-green/15 rounded-full px-2 py-1">Ready</span>
+													)}
+												</div>
+											))}
+										</div>
 									</div>
 								</div>
 							</div>
-							{/* stand */}
-							<div className="w-16 h-4 bg-white/12 mx-auto" />
-							<div className="w-32 h-1.5 rounded-full bg-white/18 mx-auto" />
+						</div>
+					</div>
+
+					{/* mobile app card */}
+					<div className="cp-card-hover bg-linear-to-br from-blue to-[#1f6fd6] rounded-[22px] sm:rounded-[30px] px-6 sm:px-9 pt-7 sm:pt-9 flex flex-col relative overflow-hidden shadow-[0_30px_70px_rgba(59,158,255,.3)]">
+						<div
+							className="absolute -right-16 -top-16 w-64 h-64 rounded-full pointer-events-none"
+							style={{ background: "radial-gradient(circle,rgba(255,255,255,.2),transparent 70%)" }}
+						/>
+						<div className="relative z-10 text-center md:text-left">
+							<div className="font-sora font-bold text-[12px] sm:text-[13px] tracking-[.6px] text-white/80 uppercase">For customers</div>
+							<h3 className="font-sora font-extrabold text-[24px] sm:text-[28px] tracking-[-.8px] text-white mt-2.5 mb-2.5 leading-[1.12]">
+								ClickPrint Mobile
+							</h3>
+							<p className="text-white/85 text-[14.5px] sm:text-[15px] leading-[1.62] max-w-100 mx-auto md:mx-0 mb-6">
+								Upload your documents, pick a nearby shop, pay online and collect your prints — no queues, no cash.
+							</p>
+							<div className="flex justify-center md:justify-start">
+								<a
+									href={MOBILE_APP_URL}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="group cp-btn-primary inline-flex items-center justify-center gap-3 cursor-pointer font-manrope font-bold text-[15px] sm:text-base text-[#1b5fc2] bg-white px-5 sm:px-6.5 py-3.5 sm:py-4 rounded-[14px] shadow-[0_10px_26px_rgba(13,27,49,.22)] whitespace-nowrap"
+								>
+									<PhoneIcon className="w-4.5 h-4.5 flex-none" />
+									Get the Mobile App
+									<ExternalIcon className="w-3.5 h-3.5 flex-none transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+								</a>
+							</div>
+							<div className="text-[11.5px] sm:text-[12px] text-white/70 font-semibold mt-3">Opens app.clickprint.pk</div>
+						</div>
+						{/* phone mockup, cropped by the card edge */}
+						<div className="relative mt-auto pt-9 h-58 sm:h-62">
+							<div className="absolute left-1/2 -translate-x-1/2 top-9 w-52 bg-navy rounded-[34px] p-2.5 shadow-[0_24px_50px_rgba(13,27,49,.35)]">
+								<div className="bg-cloud rounded-[26px] overflow-hidden relative h-80">
+									{/* notch */}
+									<div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-5 bg-navy rounded-b-2xl z-3" />
+									<div className="pt-8 px-3.5">
+										<div className="font-sora font-bold text-[14px] text-ink">My orders</div>
+										<div className="text-[10px] text-muted mt-0.5 font-semibold">2 active · Jani Print Shop</div>
+										{[
+											{ name: "Thesis.pdf", meta: "24 pages · Color", ready: true },
+											{ name: "Notes_ch4.pdf", meta: "9 pages · B&W", ready: false },
+										].map((o) => (
+											<div key={o.name} className="mt-2.5 bg-white rounded-xl p-2.5 shadow-[0_6px_16px_rgba(143,155,179,.12)] flex items-center gap-2.5">
+												<span className="flex-none w-7 h-9 rounded-[5px] bg-linear-to-br from-blue to-[#2A8AEF]" />
+												<span className="flex-1 min-w-0">
+													<span className="block text-[10.5px] font-bold text-ink truncate">{o.name}</span>
+													<span className="block text-[9px] text-muted font-semibold">{o.meta}</span>
+												</span>
+												{o.ready ? (
+													<span className="flex-none text-[8.5px] font-bold text-green-dark bg-green/15 rounded-full px-1.5 py-0.5">Ready</span>
+												) : (
+													<span className="flex-none w-3 h-3 border-2 border-line border-t-blue rounded-full animate-[cpSpin_1s_linear_infinite]" />
+												)}
+											</div>
+										))}
+										<div className="mt-3 bg-green rounded-xl p-2.5 flex items-center justify-center shadow-[0_10px_22px_rgba(0,217,163,.32)] animate-[cpTap_3.2s_ease-in-out_infinite]">
+											<span className="text-white font-sora font-bold text-[11.5px]">+ New print request</span>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
