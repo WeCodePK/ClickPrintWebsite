@@ -21,9 +21,11 @@ function WindowsIcon({ className = "" }: { className?: string }) {
 
 function PhoneIcon({ className = "" }: { className?: string }) {
 	return (
-		<svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-			<rect x="5.5" y="2" width="13" height="20" rx="3" />
-			<path d="M12 6.5v7M9 10.75l3 3 3-3M10 18h4" />
+		<svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+			<path
+				fillRule="evenodd"
+				d="M8.5 1.5h7a3 3 0 0 1 3 3v15a3 3 0 0 1-3 3h-7a3 3 0 0 1-3-3v-15a3 3 0 0 1 3-3ZM7.75 4.5v13h8.5v-13h-8.5ZM12 18.6a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"
+			/>
 		</svg>
 	);
 }
@@ -147,7 +149,7 @@ function Hero({ onRegister }: HomePageProps) {
 						</div>
 					</div>
 					<div className="cp-rise [animation-delay:.24s] text-[11.5px] sm:text-[12px] text-muted font-semibold mt-3 text-center lg:text-left">
-						Desktop app for Windows · Mobile app installs from your browser
+						Desktop app for Windows
 					</div>
 					<div className="cp-rise [animation-delay:.28s] flex items-center gap-1.5 mt-4 sm:mt-5 text-muted text-[13px] sm:text-[13.5px] font-semibold justify-center lg:justify-start">
 						{/* Joined by 600+ shops with 1000 users */}

@@ -26,18 +26,6 @@ export default function Footer({ onRegister, onContact, onPrivacy, onTerms, onRe
               <a className="w-9.5 h-9.5 cursor-not-allowed rounded-[11px] bg-white/10 flex items-center justify-center text-[15px] font-bold">𝕏</a>
               <a className="w-9.5 h-9.5 cursor-not-allowed rounded-[11px] bg-white/10 flex items-center justify-center text-[15px] font-bold">f</a>
             </div>
-            <a
-              href={MOBILE_APP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group cp-btn-primary mt-6 inline-flex items-center gap-2.5 rounded-xl bg-green text-[#063d31] font-bold text-[14.5px] pl-3.5 pr-4.5 py-3 shadow-[0_8px_22px_rgba(0,217,163,.28)]"
-            >
-              <svg viewBox="0 0 24 24" className="w-5 h-5 flex-none" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <rect x="5.5" y="2" width="13" height="20" rx="3" />
-                <path d="M12 6.5v7M9 10.75l3 3 3-3M10 18h4" />
-              </svg>
-              Install Mobile App
-            </a>
           </div>
           <div>
             <div className="font-sora font-bold text-[13px] text-white/50 uppercase tracking-[.5px] mb-4">Get started</div>
