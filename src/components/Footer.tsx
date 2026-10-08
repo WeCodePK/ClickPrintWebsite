@@ -30,21 +30,13 @@ export default function Footer({ onRegister, onContact, onPrivacy, onTerms, onRe
               href={MOBILE_APP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group mt-6 inline-flex items-center gap-3 rounded-[14px] bg-white/8 hover:bg-white/14 border border-white/15 pl-2.5 pr-4 py-2.5 transition-colors"
+              className="group cp-btn-primary mt-6 inline-flex items-center gap-2.5 rounded-xl bg-green text-[#063d31] font-bold text-[14.5px] pl-3.5 pr-4.5 py-3 shadow-[0_8px_22px_rgba(0,217,163,.28)]"
             >
-              <span className="flex-none w-9.5 h-9.5 rounded-[11px] bg-blue flex items-center justify-center">
-                <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <rect x="6" y="2.5" width="12" height="19" rx="2.8" />
-                  <path d="M10.5 18h3" />
-                </svg>
-              </span>
-              <span>
-                <span className="block text-[11px] text-white/55 font-semibold leading-tight">Get the</span>
-                <span className="block font-sora font-bold text-[14.5px] leading-tight mt-0.5">ClickPrint Mobile App</span>
-              </span>
-              <svg viewBox="0 0 16 16" className="w-3.5 h-3.5 ml-1 text-white/60 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M5 11l6-6M6 5h5v5" />
+              <svg viewBox="0 0 24 24" className="w-5 h-5 flex-none" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <rect x="5.5" y="2" width="13" height="20" rx="3" />
+                <path d="M12 6.5v7M9 10.75l3 3 3-3M10 18h4" />
               </svg>
+              Install Mobile App
             </a>
           </div>
           <div>

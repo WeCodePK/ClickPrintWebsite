@@ -22,8 +22,8 @@ function WindowsIcon({ className = "" }: { className?: string }) {
 function PhoneIcon({ className = "" }: { className?: string }) {
 	return (
 		<svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-			<rect x="6" y="2.5" width="12" height="19" rx="2.8" />
-			<path d="M10.5 18h3" />
+			<rect x="5.5" y="2" width="13" height="20" rx="3" />
+			<path d="M12 6.5v7M9 10.75l3 3 3-3M10 18h4" />
 		</svg>
 	);
 }
@@ -147,7 +147,7 @@ function Hero({ onRegister }: HomePageProps) {
 						</div>
 					</div>
 					<div className="cp-rise [animation-delay:.24s] text-[11.5px] sm:text-[12px] text-muted font-semibold mt-3 text-center lg:text-left">
-						Desktop app for Windows only, as of now
+						Desktop app for Windows · Mobile app installs from your browser
 					</div>
 					<div className="cp-rise [animation-delay:.28s] flex items-center gap-1.5 mt-4 sm:mt-5 text-muted text-[13px] sm:text-[13.5px] font-semibold justify-center lg:justify-start">
 						{/* Joined by 600+ shops with 1000 users */}
@@ -381,17 +381,17 @@ function HowItWorks() {
 		{
 			n: "1",
 			badge: "bg-[rgba(59,158,255,.12)] text-blue",
-			title: "Download Click Print Mobile app",
+			title: "Install the ClickPrint app",
 			text: (
 				<>
-					Install as a PWA or mobile app — your choice. Tap here to{" "}
+					No app store needed — it installs straight from your browser on Android or iPhone. Tap here to{" "}
 					<a
 						href={MOBILE_APP_URL}
 						target="_blank"
 						rel="noopener noreferrer"
 						className="text-blue font-bold underline underline-offset-2 hover:text-blue/80 inline-flex items-center gap-0.5"
 					>
-						download mobile app
+						open the app
 						<svg
 							className="w-3.5 h-3.5 inline-block ml-0.5"
 							viewBox="0 0 16 16"
@@ -404,7 +404,7 @@ function HowItWorks() {
 							<path d="M5 11l6-6M6 5h5v5" />
 						</svg>
 					</a>{" "}
-					to get started.
+					and add it to your home screen.
 				</>
 			),
 		},
@@ -707,7 +707,8 @@ function DownloadApp() {
 								ClickPrint Mobile
 							</h3>
 							<p className="text-white/85 text-[14.5px] sm:text-[15px] leading-[1.62] max-w-100 mx-auto md:mx-0 mb-6">
-								Upload your documents, pick a nearby shop, pay online and collect your prints — no queues, no cash.
+								Upload your documents, pick a nearby shop, pay online and collect your prints — no queues, no cash. Installs right
+								from your browser on Android or iPhone.
 							</p>
 							<div className="flex justify-center md:justify-start">
 								<a
@@ -717,11 +718,11 @@ function DownloadApp() {
 									className="group cp-btn-primary inline-flex items-center justify-center gap-3 cursor-pointer font-manrope font-bold text-[15px] sm:text-base text-[#1b5fc2] bg-white px-5 sm:px-6.5 py-3.5 sm:py-4 rounded-[14px] shadow-[0_10px_26px_rgba(13,27,49,.22)] whitespace-nowrap"
 								>
 									<PhoneIcon className="w-4.5 h-4.5 flex-none" />
-									Get the Mobile App
+									Install Mobile App
 									<ExternalIcon className="w-3.5 h-3.5 flex-none transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
 								</a>
 							</div>
-							<div className="text-[11.5px] sm:text-[12px] text-white/70 font-semibold mt-3">Opens app.clickprint.pk</div>
+							<div className="text-[11.5px] sm:text-[12px] text-white/70 font-semibold mt-3">No app store needed · tap “Add to Home Screen”</div>
 						</div>
 						{/* phone mockup, cropped by the card edge */}
 						<div className="relative mt-auto pt-9 h-58 sm:h-62">
